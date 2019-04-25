@@ -1,4 +1,4 @@
-package com.example.app_user.ui.main
+package com.example.app_user.adapter
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -14,20 +14,12 @@ class PagerAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(p0: Int): Fragment? {
         when (p0) {
-            0 -> {
-                return AdoptFragment()
-            }
-            1 -> {
-                return DeclarationFragment()
-            }
-            2 -> {
-                return ApplyFragment()
-            }
-            3 -> {
-                return ReviewFragment()
-            }
+            0 -> return AdoptFragment()
+            1 -> return DeclarationFragment()
+            2 -> return ApplyFragment()
+            3 -> return ReviewFragment()
+            else->return null
         }
-        return null
     }
 
     override fun getCount(): Int {

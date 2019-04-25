@@ -1,4 +1,4 @@
-package com.example.app_user.ui.main.adopt
+package com.example.app_user.ui.main.declaration.lost
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,25 +9,24 @@ import android.view.ViewGroup
 
 import com.example.app_user.R
 
-class AdoptFragment : Fragment() {
+class LostFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AdoptFragment()
+        fun newInstance() = LostFragment()
     }
 
-    private lateinit var viewModel: AdoptViewModel
+    private lateinit var viewModel: LostViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layout = inflater.inflate(R.layout.adopt_fragment, container, false) as ViewGroup
-        return layout
+        return inflater.inflate(R.layout.lost_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AdoptViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(LostViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
