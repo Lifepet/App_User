@@ -26,7 +26,6 @@ class DeclarationFragment : Fragment() {
         val view_Declaration=layout.find<ViewPager>(R.id.view_declaration)
         view_Declaration.currentItem = 0
         view_Declaration.adapter = DeclarationAdapter(childFragmentManager)
-        childFragmentManager.beginTransaction().replace(R.id.view_declaration, LostFragment()).commit()
         tab_Declaration.addTab(tab_Declaration.newTab().setText("신고"))
         tab_Declaration.addTab(tab_Declaration.newTab().setText("제보"))
         tab_Declaration.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

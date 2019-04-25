@@ -18,7 +18,7 @@ class PagerAdapter(fm: FragmentManager?) : FragmentStatePagerAdapter(fm) {
             1 -> return DeclarationFragment()
             2 -> return ApplyFragment()
             3 -> return ReviewFragment()
-            else->return null
+            else -> return null
         }
     }
 
