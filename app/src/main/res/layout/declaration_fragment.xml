@@ -11,6 +11,7 @@
         tools:context=".ui.main.declaration.DeclarationFragment">
 
     <android.support.design.widget.TabLayout
+            app:tabTextAppearance="@style/MyTabTextAppearance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.08"
@@ -27,7 +28,7 @@
             android:id="@+id/view_declaration"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintHeight_percent="0.92"
+            app:layout_constraintHeight_percent="0.9"
             app:layout_constraintTop_toBottomOf="@+id/tab_declaratioon"
             app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

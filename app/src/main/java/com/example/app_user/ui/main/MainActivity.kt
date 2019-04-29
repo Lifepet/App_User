@@ -3,14 +3,15 @@ package com.example.app_user.ui.main
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
 import com.example.app_user.adapter.PagerAdapter
-import com.example.app_user.R
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.app_user.ui.main.adopt.AdoptFragment
-import com.example.app_user.ui.main.apply.ApplyFragment
-import com.example.app_user.ui.main.declaration.DeclarationFragment
-import com.example.app_user.ui.main.review.ReviewFragment
+import android.widget.EditText
+import android.view.MotionEvent
+import android.content.Context
+import android.graphics.Rect
+import android.view.inputmethod.InputMethodManager
+import com.example.app_user.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -41,5 +42,22 @@ class MainActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab) {
             }
         })
+    }
+
+    override fun dispatchTouchEvent(event: MotionEvent): Boolean {
+
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val v = currentFocus
+            if (v is EditText) {
+                val outRect = Rect()
+                v.getGlobalVisibleRect(outRect)
+                if (!outRect.contains(event.rawX.toInt(), event.rawY.toInt())) {
+                    v.clearFocus()
+                    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(v.windowToken, 0)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(event)
     }
 }

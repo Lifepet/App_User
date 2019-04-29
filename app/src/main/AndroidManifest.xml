@@ -9,14 +9,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.detail_adopt.AdoptDetailActivity">
+        </activity>
         <activity android:name=".ui.signup.SignupActivity">
         </activity>
         <activity android:name=".ui.login.LoginActivity">
         </activity>
-        <activity android:name=".ui.main.MainActivity">
+        <activity
+                android:name=".ui.main.MainActivity"
+                android:windowSoftInputMode="adjustResize|adjustPan">
         </activity>
-        <activity android:name=".ui.SplashActivity"
-        android:theme="@style/SplashTheme">
+        <activity
+                android:name=".ui.SplashActivity"
+                android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

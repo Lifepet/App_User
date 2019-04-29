@@ -10,6 +10,7 @@
         android:focusable="true">
 
     <android.support.design.widget.TabLayout
+            app:tabTextAppearance="@style/MyTabTextAppearance"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.08"
