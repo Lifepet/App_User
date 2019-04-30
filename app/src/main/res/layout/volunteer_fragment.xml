@@ -6,9 +6,9 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.apply.volunteer.VolunteerFragment">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="이동봉사"/>
+            android:id="@+id/view_vlounteer"/>
 
 </FrameLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintWidth_percent="0.26"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_test3"
+            android:id="@+id/ic_adopt"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ㄴㅇㄹㄴㅇㄹㄹㅇ"
+            android:textSize="16sp"
+            android:layout_margin="2dp"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/ic_adopt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.146"
+            android:id="@+id/text_title"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sdfsdfsdfsdfsdf"
+            android:textSize="13sp"
+            android:textColor="#505050"
+            app:layout_constraintStart_toEndOf="@+id/ic_adopt"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            app:layout_constraintBottom_toTopOf="@+id/text_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:id="@+id/text_info"
+            app:layout_constraintHorizontal_bias="0.064"
+            app:layout_constraintVertical_bias="0.0"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sfsfdfjsdfkslfsdfskd"
+            app:layout_constraintStart_toEndOf="@+id/ic_adopt"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="32dp"
+            android:textColor="#505050"
+            android:textSize="12sp"
+            app:layout_constraintHorizontal_bias="0.023"
+            android:id="@+id/text_content"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sfsdf"
+            app:layout_constraintStart_toEndOf="@+id/ic_adopt"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/text_content"
+            app:layout_constraintVertical_bias="0.6"
+            android:id="@+id/text_writer"/>
+
+    <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sdfsdf"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/text_writer"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/text_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.903"
+            app:layout_constraintVertical_bias="0.687"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.01"
+            android:layout_margin="4dp"
+            android:background="@color/colorPrimary"
+            tools:layout_editor_absoluteX="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ic_adopt"
+            app:layout_constraintVertical_bias="0.7"/>
+</android.support.constraint.ConstraintLayout>

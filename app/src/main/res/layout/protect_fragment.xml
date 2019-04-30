@@ -6,9 +6,9 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.apply.protect.ProtectFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="임시보호"/>
+<android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/view_protect"/>
 
 </FrameLayout>
