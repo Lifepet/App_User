@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import com.example.app_user.R
 import com.example.app_user.adapter.VolunteerAdapter
 import com.example.app_user.model.VolunteerModel
-import com.example.app_user.ui.detail_adopt.AdoptDetailActivity
+import com.example.app_user.ui.detail_volunteer.DetailVolunteerActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 
@@ -45,7 +45,7 @@ class VolunteerFragment : Fragment() {
             RecyclerItemClickListener(context!!, recycler_Volunteer,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, AdoptDetailActivity::class.java))
+                        startActivity(Intent(context, DetailVolunteerActivity::class.java))
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {

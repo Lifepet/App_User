@@ -5,14 +5,21 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.ui.apply_adopt.ApplyAdoptActivity
-import kotlinx.android.synthetic.main.activity_detail_adopt.*
+import com.example.app_user.ui.main.MainActivity
+import kotlinx.android.synthetic.main.activity_detail_apply.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
-class AdoptDetailActivity : AppCompatActivity() {
+class DetailAdoptActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_adopt)
+        text_title_apply.setText("입양")
         bt_apply.setOnClickListener { startActivity<ApplyAdoptActivity>() }
+        ic_back.setOnClickListener {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 }

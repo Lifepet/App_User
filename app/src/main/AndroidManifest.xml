@@ -9,11 +9,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.detail_review.ReviewDetailActivity">
+        <activity android:name=".ui.detail_volunteer.DetailVolunteerActivity">
+        </activity>
+        <activity android:name=".ui.detail_protect.DetailProtectActivity"/>
+        <activity android:name=".ui.detail_report.DetailReportActivity"/>
+        <activity android:name=".ui.detail_lost.DetailLostActivity">
+        </activity>
+        <activity android:name=".ui.detail_review.DetailReviewActivity">
         </activity>
         <activity android:name=".ui.apply_adopt.ApplyAdoptActivity">
         </activity>
-        <activity android:name=".ui.detail_adopt.AdoptDetailActivity">
+        <activity android:name=".ui.detail_adopt.DetailAdoptActivity">
         </activity>
         <activity android:name=".ui.signup.SignupActivity">
         </activity>

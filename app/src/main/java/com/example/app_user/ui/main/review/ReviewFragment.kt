@@ -11,12 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.app_user.R
-import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.adapter.ReviewAdapter
-import com.example.app_user.model.AdoptModel
 import com.example.app_user.model.ReviewModel
-import com.example.app_user.ui.detail_adopt.AdoptDetailActivity
-import com.example.app_user.ui.detail_review.ReviewDetailActivity
+import com.example.app_user.ui.detail_review.DetailReviewActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 
@@ -49,7 +46,7 @@ class ReviewFragment : Fragment() {
             RecyclerItemClickListener(context!!, recycler_review,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, ReviewDetailActivity::class.java))
+                        startActivity(Intent(context, DetailReviewActivity::class.java))
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {

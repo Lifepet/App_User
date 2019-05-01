@@ -12,9 +12,8 @@ import android.view.ViewGroup
 
 import com.example.app_user.R
 import com.example.app_user.adapter.ReportAdapter
-import com.example.app_user.model.LostModel
 import com.example.app_user.model.ReportModel
-import com.example.app_user.ui.detail_adopt.AdoptDetailActivity
+import com.example.app_user.ui.detail_report.DetailReportActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 
@@ -46,7 +45,7 @@ class ReportFragment : Fragment() {
             RecyclerItemClickListener(context!!, recycler_Report,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, AdoptDetailActivity::class.java))
+                        startActivity(Intent(context, DetailReportActivity::class.java))
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {

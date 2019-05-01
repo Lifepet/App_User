@@ -11,11 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.app_user.R
-import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.adapter.ProtectAdapter
-import com.example.app_user.model.AdoptModel
 import com.example.app_user.model.ProtectModel
-import com.example.app_user.ui.detail_adopt.AdoptDetailActivity
+import com.example.app_user.ui.detail_protect.DetailProtectActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 
@@ -47,7 +45,7 @@ class ProtectFragment : Fragment() {
             RecyclerItemClickListener(context!!, recycler_Protect,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, AdoptDetailActivity::class.java))
+                        startActivity(Intent(context, DetailProtectActivity::class.java))
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {

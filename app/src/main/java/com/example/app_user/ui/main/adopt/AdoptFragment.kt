@@ -1,7 +1,5 @@
 package com.example.app_user.ui.main.adopt
 
-import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -10,13 +8,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 
 import com.example.app_user.R
 import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.model.AdoptModel
-import com.example.app_user.ui.detail_adopt.AdoptDetailActivity
+import com.example.app_user.ui.detail_adopt.DetailAdoptActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 
@@ -43,7 +39,7 @@ class AdoptFragment : Fragment() {
             RecyclerItemClickListener(context!!, recycler_Adopt,
                 object : RecyclerItemClickListener.OnItemClickListener {
                     override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, AdoptDetailActivity::class.java))
+                        startActivity(Intent(context, DetailAdoptActivity::class.java))
                     }
 
                     override fun onLongItemClick(view: View?, position: Int) {
