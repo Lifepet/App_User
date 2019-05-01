@@ -38,7 +38,7 @@ class ProtectFragment : Fragment() {
         val adoptAdapter = ProtectAdapter(activity!!, protectModel)
         recycler_Protect.layoutManager = LinearLayoutManager(context)
         recycler_Protect.adapter = adoptAdapter
-        protectModel.add(ProtectModel("사랑이 이동봉사 하실분?", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
+        protectModel.add(ProtectModel("사랑이 임시보호 하실분?", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
         protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
         protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
         protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))

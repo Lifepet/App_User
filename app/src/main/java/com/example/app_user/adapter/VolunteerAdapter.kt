@@ -7,35 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
-import com.example.app_user.model.ReviewModel
+import com.example.app_user.model.AdoptModel
+import com.example.app_user.model.ProtectModel
+import com.example.app_user.model.VolunteerModel
 import org.jetbrains.anko.find
 
-class ReviewAdapter(internal var context: Context, internal var reviewModel: ArrayList<ReviewModel>) :
-    RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
+class VolunteerAdapter(internal var context: Context, internal var volunteerModel: ArrayList<VolunteerModel>) :
+    RecyclerView.Adapter<VolunteerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_review, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_apply, viewGroup, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(reviewModel[i])
+        viewHolder.bind(volunteerModel[i])
     }
 
     override fun getItemCount(): Int {
-        return reviewModel.size
+        return volunteerModel.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val text_Title = itemView.find<TextView>(R.id.text_title)
+        val text_Info=itemView.find<TextView>(R.id.text_info)
         val text_Content = itemView.find<TextView>(R.id.text_content)
         val text_Date = itemView.find<TextView>(R.id.text_date)
         val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(reviewModel: ReviewModel) {
-            text_Title.text = reviewModel.text_Title
-            text_Content.text = reviewModel.text_Content
-            text_Date.text = reviewModel.text_Date
-            text_Writer.text = reviewModel.text_Writer
+        fun bind(volunteerModel: VolunteerModel) {
+            text_Title.text = volunteerModel.text_Title
+            text_Info.text=volunteerModel.text_Info
+            text_Content.text = volunteerModel.text_Content
+            text_Date.text = volunteerModel.text_Date
+            text_Writer.text = volunteerModel.text_Writer
         }
     }
 }
