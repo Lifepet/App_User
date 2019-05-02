@@ -44,6 +44,7 @@
                 app:layout_constraintVertical_bias="0.473"/>
 
         <ImageView
+                android:id="@+id/ic_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_sms_black_24dp"

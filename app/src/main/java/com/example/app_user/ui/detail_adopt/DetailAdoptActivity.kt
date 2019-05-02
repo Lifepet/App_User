@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.ui.apply_adopt.ApplyAdoptActivity
+import com.example.app_user.ui.dialog_comment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail_apply.*
 import org.jetbrains.anko.startActivity
@@ -20,6 +21,11 @@ class DetailAdoptActivity : AppCompatActivity() {
         ic_back.setOnClickListener {
             startActivity<MainActivity>()
             finish()
+        }
+        ic_comment.setOnClickListener {
+            val commentDialog = CommentDialog(this)
+            commentDialog.Comment()
+            commentDialog.type="입양"
         }
     }
 }

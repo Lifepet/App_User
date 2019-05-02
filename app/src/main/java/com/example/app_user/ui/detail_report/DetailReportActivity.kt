@@ -3,6 +3,7 @@ package com.example.app_user.ui.detail_report
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
+import com.example.app_user.ui.dialog_comment.CommentDialog
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailReportActivity : AppCompatActivity() {
@@ -11,5 +12,10 @@ class DetailReportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_report)
         text_title.setText("제보")
+        ic_comment.setOnClickListener {
+            val commentDialog = CommentDialog(this)
+            commentDialog.Comment()
+            commentDialog.type="제보"
+        }
     }
 }
