@@ -8,21 +8,17 @@ import com.example.app_user.R
 import com.example.app_user.databinding.ActivityLoginBinding
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.ui.signup.SignupActivity
+import com.example.app_user.ui.signup.SignupViewModel
+import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
-class LoginActivity : AppCompatActivity(), LoginNavigator {
-    override fun intentSignup() {
-        startActivity<SignupActivity>()
-    }
+class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
 
-    override fun intentLogin() {
-        startActivity<MainActivity>()
-        finish()
-    }
+    override val layoutId: Int get() = R.layout.activity_login
 
-     override fun onCreate(savedInstanceState: Bundle?) {
+    private val viewModel: LoginViewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this, R.layout.activity_login)
-        binding.vm = LoginViewModel(this)
+        binding.vm=viewModel
     }
 }
