@@ -1,5 +1,7 @@
 package com.example.app_user.ui.login
 
+import android.app.Activity
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
@@ -13,12 +15,14 @@ import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
 class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
-
     override val layoutId: Int get() = R.layout.activity_login
 
     private val viewModel: LoginViewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.vm=viewModel
+        binding.vm = viewModel
+        viewModel.touchLogin.observe(this, Observer { startActivity<MainActivity>() })
+        viewModel.touchSignup.observe(this, Observer { startActivity<SignupActivity>() })
     }
 }

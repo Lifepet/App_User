@@ -15,7 +15,6 @@ class SignupViewModel : ViewModel() {
     val textId = MutableLiveData<String>()
     val textPw = MutableLiveData<String>()
     val textPwCheck = MutableLiveData<String>()
-    val textPet = MutableLiveData<Int>()
     val signupEvent = SingleLiveEvent<Any>()
     fun signUp() = join()
 
@@ -23,10 +22,10 @@ class SignupViewModel : ViewModel() {
         if (textPw.value == textPwCheck.value) {
             Connecter.api.join(
                 hashMapOf(
-                    "username" to textName.value,
-                    "id" to textId.value,
-                    "pw" to textPw.value,
-                    "pet" to textPet.value
+                    "name" to textName.value,
+                    "username" to textId.value,
+                    "password" to textPw.value,
+                    "pet" to 0
                 )
             ).enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
