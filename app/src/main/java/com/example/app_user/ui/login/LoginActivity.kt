@@ -13,6 +13,7 @@ import com.example.app_user.ui.signup.SignupActivity
 import com.example.app_user.ui.signup.SignupViewModel
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
     override val layoutId: Int get() = R.layout.activity_login
@@ -24,5 +25,6 @@ class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
         binding.vm = viewModel
         viewModel.touchLogin.observe(this, Observer { startActivity<MainActivity>() })
         viewModel.touchSignup.observe(this, Observer { startActivity<SignupActivity>() })
+        viewModel.touchError.observe(this, Observer { toast("아이디 혹은 비밀번호가 틀렸습니다.") })
     }
 }

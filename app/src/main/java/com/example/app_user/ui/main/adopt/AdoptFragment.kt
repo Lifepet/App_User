@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.model.AdoptModel
 import com.example.app_user.ui.detail_adopt.DetailAdoptActivity
 import com.example.app_user.util.RecyclerItemClickListener
+import com.example.app_user.util.getToken
 import org.jetbrains.anko.find
 
 class AdoptFragment : Fragment() {
