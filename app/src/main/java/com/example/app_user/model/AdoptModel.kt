@@ -1,3 +1,3 @@
 package com.example.app_user.model
 
-data class AdoptModel(var text_Title:String,var text_Content:String,var text_Writer:String,var text_Date:String)
+data class AdoptModel(var textTitle:String,var textContent:String,var textWriter:String,var textDate:String,var textImage:String)

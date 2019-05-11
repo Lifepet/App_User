@@ -3,11 +3,6 @@ package com.example.app_user.ui.login
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableField
-import android.preference.PreferenceManager
-import android.view.View
-import android.widget.Toast
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.LoginModel
 import com.example.app_user.util.SingleLiveEvent
@@ -22,9 +17,16 @@ class LoginViewModel(val app: Application) : AndroidViewModel(app) {
     val touchLogin = SingleLiveEvent<Any>()
     val touchSignup = SingleLiveEvent<Any>()
     val touchError = SingleLiveEvent<Any>()
-    fun loginTouch(view: View) {
+    val touchNull = SingleLiveEvent<Any>()
+//    fun automaticLogin() {
+//        if (getToken(app.baseContext, true).isNotEmpty()) {
+//            touchLogin.call()
+//        }
+//    }
+
+    fun loginTouch() {
         if (editId.value.isNullOrBlank() || editPassword.value.isNullOrBlank()) {
-            Toast.makeText(view.context, "입력이 바르지 않습니다.", Toast.LENGTH_SHORT).show()
+            touchNull.call()
         } else {
             login()
         }
@@ -35,7 +37,6 @@ class LoginViewModel(val app: Application) : AndroidViewModel(app) {
     fun login() {
         Connecter.api.login(hashMapOf("username" to editId.value, "password" to editPassword.value))
             .enqueue(object : Callback<LoginModel> {
-
                 override fun onResponse(call: Call<LoginModel>, response: Response<LoginModel>) {
                     when (response.code()) {
                         200 -> {

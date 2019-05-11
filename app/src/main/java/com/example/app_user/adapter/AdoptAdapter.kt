@@ -1,41 +1,48 @@
 package com.example.app_user.adapter
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.app_user.R
-import com.example.app_user.model.AdoptModel
+import com.example.app_user.databinding.AdoptFragmentBinding
+import com.example.app_user.model.AdoptListModel
+import com.example.app_user.ui.main.adopt.AdoptViewModel
 import org.jetbrains.anko.find
 
-class AdoptAdapter(internal var context: Context, internal var adoptModel: ArrayList<AdoptModel>) :
+class AdoptAdapter(val viewModel: AdoptViewModel) :
     RecyclerView.Adapter<AdoptAdapter.ViewHolder>() {
+    var item = arrayListOf<AdoptListModel>()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_adopt, viewGroup, false)
-        return ViewHolder(view)
+        val binding = AdoptFragmentBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(adoptModel[i])
+        viewHolder.bind(item[i])
     }
 
-    override fun getItemCount(): Int {
-        return adoptModel.size
-    }
+    override fun getItemCount(): Int = item.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text_Title = itemView.find<TextView>(R.id.text_title)
-        val text_Content = itemView.find<TextView>(R.id.text_content)
-        val text_Date = itemView.find<TextView>(R.id.text_date)
-        val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(adoptModel: AdoptModel) {
-            text_Title.text = adoptModel.text_Title
-            text_Content.text = adoptModel.text_Content
-            text_Date.text = adoptModel.text_Date
-            text_Writer.text = adoptModel.text_Writer
+    inner class ViewHolder(val binding: AdoptFragmentBinding) : RecyclerView.ViewHolder(binding.root) {
+        val textTitle = itemView.find<TextView>(R.id.text_title)
+        val textContent = itemView.find<TextView>(R.id.text_content)
+        val textDate = itemView.find<TextView>(R.id.text_date)
+        val textWriter = itemView.find<TextView>(R.id.text_writer)
+        val textImage = itemView.find<ImageView>(R.id.ic_adopt)
+        fun bind(adoptModel: AdoptListModel) {
+            textTitle.text = adoptModel.title
+            textContent.text = adoptModel.content
+            textDate.text = adoptModel.creationDate
+            textWriter.text = adoptModel.postId
+            if (adoptModel.image.isNotEmpty()) {
+                Glide.with(itemView).load(adoptModel.image).apply(RequestOptions().override(150, 150))
+                    .into(textImage)
+            }
         }
     }
 }

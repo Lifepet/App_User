@@ -26,5 +26,6 @@ class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
         viewModel.touchLogin.observe(this, Observer { startActivity<MainActivity>() })
         viewModel.touchSignup.observe(this, Observer { startActivity<SignupActivity>() })
         viewModel.touchError.observe(this, Observer { toast("아이디 혹은 비밀번호가 틀렸습니다.") })
+        viewModel.touchNull.observe(this, Observer { toast("아이디 혹은 비밀번호를 입력하지 않으셨습니다.") })
     }
 }

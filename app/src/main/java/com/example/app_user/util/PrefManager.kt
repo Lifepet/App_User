@@ -24,7 +24,7 @@ fun removeToken(context: Context, isAccess: Boolean = true) {
 }
 
 fun getToken(context: Context, isAccess: Boolean = true): String {
-    return "Bearer " + getPref(context).getString(getKey(isAccess), "")
+    return "JWT " + getPref(context).getString(getKey(isAccess), "")
 }
 
 private fun getKey(isAccess: Boolean): String = if (isAccess) "Access" else "Refresh"
