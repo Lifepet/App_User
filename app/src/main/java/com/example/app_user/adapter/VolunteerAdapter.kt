@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
-import com.example.app_user.model.AdoptModel
-import com.example.app_user.model.ProtectModel
 import com.example.app_user.model.VolunteerModel
 import org.jetbrains.anko.find
 
