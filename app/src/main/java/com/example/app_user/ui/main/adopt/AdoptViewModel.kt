@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.AdoptListModel
 import com.example.app_user.util.LifecycleCallback
+import com.example.app_user.util.SingleLiveEvent
 import com.example.app_user.util.getToken
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,10 +17,11 @@ import retrofit2.Response
 
 class AdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val adoptModel = MutableLiveData<ArrayList<AdoptListModel>>()
+    val postId = MutableLiveData<String?>()
+    val gotoDetail = SingleLiveEvent<Any>()
 
     fun getAdopt() {
         Connecter.api.getAdopt(getToken(app.applicationContext)).enqueue(object : Callback<ArrayList<AdoptListModel>> {
-
             override fun onResponse(
                 call: Call<ArrayList<AdoptListModel>>,
                 response: Response<ArrayList<AdoptListModel>>
@@ -34,4 +36,10 @@ class AdoptViewModel(val app: Application) : AndroidViewModel(app) {
             }
         })
     }
+
+    fun adoptTouch(index: Int) {
+        postId.value = adoptModel.value!![index].post_id
+        gotoDetail.call()
+    }
+
 }

@@ -6,6 +6,7 @@ import android.arch.lifecycle.MutableLiveData
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.LoginModel
 import com.example.app_user.util.SingleLiveEvent
+import com.example.app_user.util.getToken
 import com.example.app_user.util.saveToken
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,11 +19,12 @@ class LoginViewModel(val app: Application) : AndroidViewModel(app) {
     val touchSignup = SingleLiveEvent<Any>()
     val touchError = SingleLiveEvent<Any>()
     val touchNull = SingleLiveEvent<Any>()
-//    fun automaticLogin() {
-//        if (getToken(app.baseContext, true).isNotEmpty()) {
-//            touchLogin.call()
-//        }
-//    }
+
+    fun automaticLogin() {
+        if (getToken(app.baseContext, true).isNotEmpty()) {
+            touchLogin.call()
+        }
+    }
 
     fun loginTouch() {
         if (editId.value.isNullOrBlank() || editPassword.value.isNullOrBlank()) {

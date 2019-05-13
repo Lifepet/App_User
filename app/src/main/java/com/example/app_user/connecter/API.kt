@@ -10,9 +10,13 @@ interface API {
     fun join(@Body body: Any): Call<Void>
 
     @POST("auth/login/")
-    fun login(@Body body: Any):Call<LoginModel>
+    fun login(@Body body: Any): Call<LoginModel>
 
     @GET("post/adoption/")
     @Headers("Content-Type: application/json")
-    fun getAdopt(@Header("Authorization") token: String):Call<ArrayList<AdoptListModel>>
+    fun getAdopt(@Header("Authorization") token: String): Call<ArrayList<AdoptListModel>>
+
+    @GET("post/adoption/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getAdoptDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<AdoptListModel>
 }
