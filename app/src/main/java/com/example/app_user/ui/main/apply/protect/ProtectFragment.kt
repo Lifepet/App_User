@@ -1,5 +1,6 @@
 package com.example.app_user.ui.main.apply.protect
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -36,5 +37,6 @@ class ProtectFragment : DataBindingFragment<ProtectFragmentBinding>() {
         binding.vm = viewModel
         view_protect.adapter = ProtectAdapter(viewModel)
         viewModel.getProtect()
+        viewModel.gotoDetail.observe(this, Observer { activity!!.startActivity<DetailProtectActivity>("id" to viewModel.postId.value!!) })
     }
 }

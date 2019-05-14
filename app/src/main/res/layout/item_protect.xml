@@ -22,6 +22,7 @@
     </data>
 
     <android.support.constraint.ConstraintLayout
+            android:onClick="@{()->vm.adoptTouch(index)}"
             android:layout_width="match_parent"
             android:layout_height="130dp">
 

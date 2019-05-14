@@ -14,8 +14,8 @@ import retrofit2.Response
 class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val adoptModel = MutableLiveData<AdoptListModel>()
     val postId = MutableLiveData<String>()
-    val backMain=SingleLiveEvent<Any>()
-    fun backtoMain()= backMain.call()
+    val backMain = SingleLiveEvent<Any>()
+    fun backtoMain() = backMain.call()
     fun getAdoptDetail() {
         Connecter.api.getAdoptDetail(getToken(app.applicationContext), postId.value!!)
             .enqueue(object : Callback<AdoptListModel> {
