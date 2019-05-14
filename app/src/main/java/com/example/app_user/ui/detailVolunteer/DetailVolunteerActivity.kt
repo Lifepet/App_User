@@ -1,4 +1,4 @@
-package com.example.app_user.ui.detail_volunteer
+package com.example.app_user.ui.detailVolunteer
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

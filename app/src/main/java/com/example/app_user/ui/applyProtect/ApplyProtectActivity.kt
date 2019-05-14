@@ -1,4 +1,4 @@
-package com.example.app_user.ui.apply_protect
+package com.example.app_user.ui.applyProtect
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

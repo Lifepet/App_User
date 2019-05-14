@@ -11,19 +11,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.apply_volunteer.ApplyVolunteerActivity">
+        <activity android:name=".ui.applyVolunteer.ApplyVolunteerActivity">
         </activity>
-        <activity android:name=".ui.apply_protect.ApplyProtectActivity">
+        <activity android:name=".ui.applyProtect.ApplyProtectActivity">
         </activity>
-        <activity android:name=".ui.detail_volunteer.DetailVolunteerActivity">
+        <activity android:name=".ui.detailVolunteer.DetailVolunteerActivity">
         </activity>
-        <activity android:name=".ui.detail_protect.DetailProtectActivity"/>
-        <activity android:name=".ui.detail_report.DetailReportActivity"/>
-        <activity android:name=".ui.detail_lost.DetailLostActivity">
+        <activity android:name=".ui.detailProtect.DetailProtectActivity"/>
+        <activity android:name=".ui.detailReport.DetailReportActivity"/>
+        <activity android:name=".ui.detailLost.DetailLostActivity">
         </activity>
-        <activity android:name=".ui.detail_review.DetailReviewActivity">
+        <activity android:name=".ui.detailReview.DetailReviewActivity">
         </activity>
-        <activity android:name=".ui.apply_adopt.ApplyAdoptActivity">
+        <activity android:name=".ui.applyAdopt.ApplyAdoptActivity">
         </activity>
         <activity android:name=".ui.detail_adopt.DetailAdoptActivity">
         </activity>

@@ -19,7 +19,6 @@ class VolunteerAdapter(internal var context: Context, internal var volunteerMode
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(volunteerModel[i])
     }
 
     override fun getItemCount(): Int {
@@ -27,17 +26,8 @@ class VolunteerAdapter(internal var context: Context, internal var volunteerMode
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text_Title = itemView.find<TextView>(R.id.text_title)
-        val text_Info=itemView.find<TextView>(R.id.text_info)
-        val text_Content = itemView.find<TextView>(R.id.text_content)
-        val text_Date = itemView.find<TextView>(R.id.text_date)
-        val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(volunteerModel: VolunteerModel) {
-            text_Title.text = volunteerModel.text_Title
-            text_Info.text=volunteerModel.text_Info
-            text_Content.text = volunteerModel.text_Content
-            text_Date.text = volunteerModel.text_Date
-            text_Writer.text = volunteerModel.text_Writer
+        fun bind(){
+
         }
     }
 }

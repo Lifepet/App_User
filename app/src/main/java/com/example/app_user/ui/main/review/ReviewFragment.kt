@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import com.example.app_user.R
 import com.example.app_user.adapter.ReviewAdapter
 import com.example.app_user.model.ReviewModel
-import com.example.app_user.ui.detail_review.DetailReviewActivity
+import com.example.app_user.ui.detailReview.DetailReviewActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 

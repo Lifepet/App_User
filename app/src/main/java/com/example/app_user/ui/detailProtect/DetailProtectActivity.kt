@@ -1,10 +1,8 @@
-package com.example.app_user.ui.detail_protect
+package com.example.app_user.ui.detailProtect
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class DetailProtectActivity : AppCompatActivity() {
 

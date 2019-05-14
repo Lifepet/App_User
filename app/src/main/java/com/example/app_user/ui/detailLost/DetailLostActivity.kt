@@ -1,15 +1,12 @@
-package com.example.app_user.ui.detail_lost
+package com.example.app_user.ui.detailLost
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.app_user.R
-import com.example.app_user.ui.dialog_comment.CommentDialog
+import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.dialog_comment.*
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
-import org.w3c.dom.Comment
 
 class DetailLostActivity : AppCompatActivity() {
 

@@ -1,13 +1,11 @@
-package com.example.app_user.ui.dialog_comment
+package com.example.app_user.ui.dialogComment
 
 import android.app.Dialog
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.widget.Toast
 import com.example.app_user.R
 import kotlinx.android.synthetic.main.dialog_comment.*
-import org.jetbrains.anko.toast
 
 class CommentDialog(internal var context: Context) {
     var type:String = ""

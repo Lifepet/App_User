@@ -1,14 +1,13 @@
 package com.example.app_user.ui.detail_adopt
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailAdoptBinding
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
 class DetailAdoptActivity : DataBindingActivity<ActivityDetailAdoptBinding>() {
     override val layoutId: Int get() = R.layout.activity_detail_adopt
@@ -23,5 +22,6 @@ class DetailAdoptActivity : DataBindingActivity<ActivityDetailAdoptBinding>() {
         val intent=intent
         viewModel.postId.value= intent.getStringExtra("id")
         viewModel.getAdoptDetail()
+        viewModel.backMain.observe(this, Observer { startActivity<MainActivity>() })
     }
 }

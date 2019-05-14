@@ -1,9 +1,9 @@
-package com.example.app_user.ui.detail_report
+package com.example.app_user.ui.detailReport
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
-import com.example.app_user.ui.dialog_comment.CommentDialog
+import com.example.app_user.ui.dialogComment.CommentDialog
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailReportActivity : AppCompatActivity() {

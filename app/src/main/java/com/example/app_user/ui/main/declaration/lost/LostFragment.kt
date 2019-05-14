@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import com.example.app_user.R
 import com.example.app_user.adapter.LostAdapter
 import com.example.app_user.model.LostModel
-import com.example.app_user.ui.detail_lost.DetailLostActivity
+import com.example.app_user.ui.detailLost.DetailLostActivity
 import com.example.app_user.util.RecyclerItemClickListener
 import org.jetbrains.anko.find
 

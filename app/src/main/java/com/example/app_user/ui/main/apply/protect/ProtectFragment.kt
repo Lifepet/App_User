@@ -11,55 +11,30 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.app_user.R
+import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.adapter.ProtectAdapter
+import com.example.app_user.databinding.ProtectFragmentBinding
 import com.example.app_user.model.ProtectModel
-import com.example.app_user.ui.detail_protect.DetailProtectActivity
+import com.example.app_user.ui.detailProtect.DetailProtectActivity
+import com.example.app_user.ui.detail_adopt.DetailAdoptActivity
+import com.example.app_user.ui.main.adopt.AdoptViewModel
+import com.example.app_user.util.DataBindingFragment
 import com.example.app_user.util.RecyclerItemClickListener
+import kotlinx.android.synthetic.main.adopt_fragment.*
+import kotlinx.android.synthetic.main.protect_fragment.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
-class ProtectFragment : Fragment() {
+class ProtectFragment : DataBindingFragment<ProtectFragmentBinding>() {
 
-    companion object {
-        fun newInstance() = ProtectFragment()
+    override val layoutId: Int
+        get() = R.layout.protect_fragment
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel = ViewModelProviders.of(activity!!).get(ProtectViewModel::class.java)
+        binding.vm = viewModel
+        view_protect.adapter = ProtectAdapter(viewModel)
+        viewModel.getProtect()
     }
-
-    private lateinit var viewModel: ProtectViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val layout = inflater.inflate(R.layout.protect_fragment, container, false) as ViewGroup
-        val recycler_Protect = layout.find<RecyclerView>(R.id.view_protect)
-        val protectModel = ArrayList<ProtectModel>()
-        recycler_Protect.setHasFixedSize(true)
-        val adoptAdapter = ProtectAdapter(activity!!, protectModel)
-        recycler_Protect.layoutManager = LinearLayoutManager(context)
-        recycler_Protect.adapter = adoptAdapter
-        protectModel.add(ProtectModel("사랑이 임시보호 하실분?", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
-        protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
-        protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
-        protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
-        protectModel.add(ProtectModel("사랑이를 키워주세요", "봉사날:그러게","사랑이 입양해주실분 구해요~~", "류수영", "2019/4/15"))
-        recycler_Protect.addOnItemTouchListener(
-            RecyclerItemClickListener(context!!, recycler_Protect,
-                object : RecyclerItemClickListener.OnItemClickListener {
-                    override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, DetailProtectActivity::class.java))
-                    }
-
-                    override fun onLongItemClick(view: View?, position: Int) {
-
-                    }
-                })
-        )
-        return layout
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ProtectViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
