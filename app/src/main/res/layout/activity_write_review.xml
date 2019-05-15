@@ -74,6 +74,7 @@
                 android:id="@+id/imageView4"/>
 
         <EditText
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintHeight_percent="0.06"
@@ -84,6 +85,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 android:hint="제목"
+                android:text="@={vm.reviewTitle}"
                 android:padding="8dp"
                 android:textSize="14sp"
                 android:layout_marginBottom="8dp"
@@ -93,6 +95,7 @@
                 android:id="@+id/editText3"/>
 
         <EditText
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintHeight_percent="0.3"
@@ -101,6 +104,7 @@
                 android:layout_marginStart="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
+                android:text="@={vm.reviewContent}"
                 android:hint="내용"
                 android:padding="8dp"
                 android:gravity="top"
@@ -125,6 +129,7 @@
                 android:background="@drawable/back_login"
                 android:textSize="14sp"
                 android:text="작성완료"
+                android:onClick="@{()->vm.postReview()}"
                 android:textColor="@android:color/white"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

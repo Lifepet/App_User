@@ -15,14 +15,21 @@ import android.widget.ImageView
 import org.jetbrains.anko.find
 import java.io.File
 import android.graphics.BitmapFactory
+import android.util.Log
+import com.example.app_user.ui.main.MainActivity
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 
 class WriteReviewActivity : DataBindingActivity<ActivityWriteReviewBinding>() {
+
     override val layoutId: Int get() = R.layout.activity_write_review
 
     private val viewModel: WriteReviewViewModel by lazy {
         ViewModelProviders.of(this).get(WriteReviewViewModel::class.java)
     }
+
+    private val PICK_FROM_ALBUM = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +37,17 @@ class WriteReviewActivity : DataBindingActivity<ActivityWriteReviewBinding>() {
         viewModel.getImage.observe(this, Observer {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
-            startActivityForResult(intent, 1)
+            startActivityForResult(intent, PICK_FROM_ALBUM)
+        })
+        viewModel.successPost.observe(this, Observer {
+            startActivity<MainActivity>()
+            toast("성공")
         })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
-        if (requestCode == 1) {
+        if (requestCode == PICK_FROM_ALBUM) {
             val photoUri = data!!.data
             var cursor: Cursor? = null
             try {
@@ -53,6 +64,7 @@ class WriteReviewActivity : DataBindingActivity<ActivityWriteReviewBinding>() {
                     cursor.close()
                 }
             }
+            Log.d("test", viewModel.imageUri.value.toString())
             setImage()
 
         }
