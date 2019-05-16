@@ -17,7 +17,7 @@ class ReviewViewModel(val app: Application) : AndroidViewModel(app) {
     val reviewModel = MutableLiveData<ArrayList<ReviewModel>>()
     val postId = MutableLiveData<String>()
     val gotoDetail = SingleLiveEvent<Any>()
-    val gotoWrite=SingleLiveEvent<Any>()
+    val gotoWrite = SingleLiveEvent<Any>()
 
     fun getReview() {
         Connecter.api.getReview(getToken(app.applicationContext)).enqueue(object : Callback<ArrayList<ReviewModel>> {
@@ -36,12 +36,12 @@ class ReviewViewModel(val app: Application) : AndroidViewModel(app) {
         })
     }
 
-    fun adoptTouch(index: Int) {
+    fun reviewTouch(index: Int) {
         postId.value = reviewModel.value!![index].post_id
         gotoDetail.call()
     }
 
-    fun writeReview(){
+    fun writeReview() {
         gotoWrite.call()
     }
 }

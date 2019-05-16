@@ -11,34 +11,31 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.app_user.R
+import com.example.app_user.adapter.ProtectAdapter
 import com.example.app_user.adapter.VolunteerAdapter
+import com.example.app_user.databinding.VolunteerFragmentBinding
 import com.example.app_user.model.VolunteerModel
+import com.example.app_user.ui.detailProtect.DetailProtectActivity
 import com.example.app_user.ui.detailVolunteer.DetailVolunteerActivity
+import com.example.app_user.ui.main.apply.protect.ProtectViewModel
+import com.example.app_user.util.DataBindingFragment
 import com.example.app_user.util.RecyclerItemClickListener
+import kotlinx.android.synthetic.main.protect_fragment.*
+import kotlinx.android.synthetic.main.volunteer_fragment.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
-class VolunteerFragment : Fragment() {
+class VolunteerFragment : DataBindingFragment<VolunteerFragmentBinding>() {
 
-    companion object {
-        fun newInstance() = VolunteerFragment()
-    }
+    override val layoutId: Int
+        get() = R.layout.volunteer_fragment
 
-    private lateinit var viewModel: VolunteerViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val layout = inflater.inflate(R.layout.volunteer_fragment, container, false) as ViewGroup
-        val recycler_Volunteer = layout.find<RecyclerView>(R.id.view_volunteer)
-
-        return layout
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(VolunteerViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel = ViewModelProviders.of(activity!!).get(VolunteerViewModel::class.java)
+        binding.vm = viewModel
+        view_volunteer.adapter = VolunteerAdapter(viewModel)
+        viewModel.getVolunteer()
     }
 
 }

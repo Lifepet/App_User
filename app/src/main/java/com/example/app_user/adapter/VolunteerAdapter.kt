@@ -7,27 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
+import com.example.app_user.databinding.ItemApplyBinding
+import com.example.app_user.databinding.ItemReviewBinding
+import com.example.app_user.model.ReviewModel
 import com.example.app_user.model.VolunteerModel
+import com.example.app_user.ui.main.apply.volunteer.VolunteerViewModel
 import org.jetbrains.anko.find
 
-class VolunteerAdapter(internal var context: Context, internal var volunteerModel: ArrayList<VolunteerModel>) :
+class VolunteerAdapter(val viewModel: VolunteerViewModel) :
     RecyclerView.Adapter<VolunteerAdapter.ViewHolder>() {
+    var item = arrayListOf<VolunteerModel>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_apply, viewGroup, false)
-        return ViewHolder(view)
+        val binding = ItemApplyBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
+        viewHolder.bind()
     }
 
     override fun getItemCount(): Int {
-        return volunteerModel.size
+        return item.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(){
-
+    inner class ViewHolder(val binding: ItemApplyBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            binding.index = adapterPosition
+            binding.vm = viewModel
+            binding.volunteerModel = item[adapterPosition]
         }
     }
 }

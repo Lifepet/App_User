@@ -8,5 +8,6 @@ data class VolunteerModel(
     var creation_date: String,
     var sex: String,
     var author: String,
-    var current_location: String
+    var current_location: String,
+    var destination_location: String
 )

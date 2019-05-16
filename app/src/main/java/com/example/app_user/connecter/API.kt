@@ -1,9 +1,6 @@
 package com.example.app_user.connecter
 
-import com.example.app_user.model.AdoptListModel
-import com.example.app_user.model.LoginModel
-import com.example.app_user.model.ProtectModel
-import com.example.app_user.model.ReviewModel
+import com.example.app_user.model.*
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -45,6 +42,18 @@ interface API {
     @GET("post/community/")
     @Headers("Content-Type: application/json")
     fun getReview(@Header("Authorization") token: String): Call<ArrayList<ReviewModel>>
+
+    @GET("post/community/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getReviewDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ReviewModel>
+
+    @GET("post/move/")
+    @Headers("Content-Type: application/json")
+    fun getVolunteer(@Header("Authorization") token: String): Call<ArrayList<VolunteerModel>>
+
+    @GET("post/move/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getVolunteerDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<VolunteerModel>
 
 
 }
