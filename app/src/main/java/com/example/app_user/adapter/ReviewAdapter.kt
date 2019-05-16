@@ -7,35 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
+import com.example.app_user.databinding.ItemAdoptBinding
+import com.example.app_user.databinding.ItemReviewBinding
+import com.example.app_user.model.AdoptListModel
 import com.example.app_user.model.ReviewModel
+import com.example.app_user.ui.main.review.ReviewViewModel
 import org.jetbrains.anko.find
 
-class ReviewAdapter(internal var context: Context, internal var reviewModel: ArrayList<ReviewModel>) :
+class ReviewAdapter(val viewModel: ReviewViewModel) :
     RecyclerView.Adapter<ReviewAdapter.ViewHolder>() {
+    var item = arrayListOf<ReviewModel>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_review, viewGroup, false)
-        return ViewHolder(view)
+        val binding = ItemReviewBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(reviewModel[i])
+        viewHolder.bind()
     }
 
     override fun getItemCount(): Int {
-        return reviewModel.size
+        return item.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text_Title = itemView.find<TextView>(R.id.text_title)
-        val text_Content = itemView.find<TextView>(R.id.text_content)
-        val text_Date = itemView.find<TextView>(R.id.text_date)
-        val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(reviewModel: ReviewModel) {
-            text_Title.text = reviewModel.text_Title
-            text_Content.text = reviewModel.text_Content
-            text_Date.text = reviewModel.text_Date
-            text_Writer.text = reviewModel.text_Writer
+    inner class ViewHolder(val binding: ItemReviewBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            binding.index = adapterPosition
+            binding.reviewModel = item[adapterPosition]
+            binding.vm = viewModel
         }
     }
 }

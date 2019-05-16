@@ -3,6 +3,7 @@ package com.example.app_user.connecter
 import com.example.app_user.model.AdoptListModel
 import com.example.app_user.model.LoginModel
 import com.example.app_user.model.ProtectModel
+import com.example.app_user.model.ReviewModel
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -40,6 +41,10 @@ interface API {
         @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("content") content: RequestBody,
         @Part image: MultipartBody.Part
     ): Call<Unit>
+
+    @GET("post/community/")
+    @Headers("Content-Type: application/json")
+    fun getReview(@Header("Authorization") token: String): Call<ArrayList<ReviewModel>>
 
 
 }

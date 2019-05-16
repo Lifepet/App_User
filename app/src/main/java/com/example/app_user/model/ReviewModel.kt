@@ -1,3 +1,9 @@
 package com.example.app_user.model
 
-data class ReviewModel(var text_Title:String,var text_Content:String,var text_Writer:String,var text_Date:String)
+data class ReviewModel(
+    var post_id: String,
+    var image: String,
+    var title: String,
+    var content: String,
+    var creation_date: String
+)
