@@ -35,14 +35,11 @@ interface API {
     fun getProtectDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ProtectModel>
 
     @POST("post/community/")
-    @Headers("Content-Type: application/json")
     @Multipart
     fun postReview(
-        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("content") content: RequestBody, @Part(
-            "author"
-        ) author: RequestBody, @Part("post_id") post_id: RequestBody, @Part("creation_date") creation_date: RequestBody,
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("content") content: RequestBody,
         @Part image: MultipartBody.Part
-    ): Call<Void>
+    ): Call<Unit>
 
 
 }

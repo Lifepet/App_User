@@ -3,7 +3,6 @@ package com.example.app_user.ui.writeReview
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
-import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import com.example.app_user.connecter.Connecter
@@ -23,8 +22,6 @@ class WriteReviewViewModel(val app: Application) : AndroidViewModel(app) {
     val imageUri = MutableLiveData<File>()
     val reviewTitle = MutableLiveData<String>()
     val reviewContent = MutableLiveData<String>()
-    val file = File(imageUri.value.toString())
-    val requsetBody = RequestBody.create(MediaType.parse("image/*"), file)
     val successPost = SingleLiveEvent<Any>()
 
     fun imageLoad() {
@@ -32,28 +29,29 @@ class WriteReviewViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun postReview() {
+        val file = File(imageUri.value?.toURI())
+        val requestBody = RequestBody.create(MediaType.parse("image/*"), file)
+        val title = RequestBody.create(MediaType.parse("text/plane"), reviewTitle.value.toString())
+        val content = RequestBody.create(MediaType.parse("text/plane"), reviewContent.value.toString())
+        val fileName = MultipartBody.Part.createFormData("image", file.name, requestBody)
+        Log.d("file", file.toString())
+
         Connecter.api.postReview(
             getToken(app.applicationContext),
-            getData(reviewTitle.value!!),
-            getData(reviewContent.value!!),
-            getData("나야나"),
-            getData("8888888"),
-            getData("2019-05-14"),
-            MultipartBody.Part.createFormData("image", file.name, requsetBody)
-        ).enqueue(object : Callback<Void> {
+            title, content, fileName
+        ).enqueue(object : Callback<Unit> {
 
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                successPost.call()
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                when (response.code()) {
+                    201 -> successPost.call()
+                    else -> Toast.makeText(app.applicationContext, "실패함!", Toast.LENGTH_SHORT).show()
+                }
             }
 
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Toast.makeText(app.applicationContext, "실패띠", Toast.LENGTH_SHORT).show()
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Toast.makeText(app.applicationContext, "실패", Toast.LENGTH_SHORT).show()
             }
 
         })
-    }
-
-    fun getData(st: String): RequestBody {
-        return RequestBody.create(MediaType.parse("text/plane"), st)
     }
 }

@@ -11,56 +11,30 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.app_user.R
+import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.adapter.ReviewAdapter
 import com.example.app_user.model.ReviewModel
 import com.example.app_user.ui.detailReview.DetailReviewActivity
+import com.example.app_user.ui.detail_adopt.DetailAdoptActivity
+import com.example.app_user.ui.main.adopt.AdoptViewModel
 import com.example.app_user.util.RecyclerItemClickListener
+import kotlinx.android.synthetic.main.adopt_fragment.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class ReviewFragment : Fragment() {
+//    override val layoutId: Int
+//        get() = R.layout.adopt_fragment
 
-    companion object {
-        fun newInstance() = ReviewFragment()
-    }
-
-    private lateinit var viewModel: ReviewViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val layout = inflater.inflate(R.layout.review_fragment, container, false) as ViewGroup
-        val recycler_review = layout.find<RecyclerView>(R.id.view_review)
-        val reviewModel = ArrayList<ReviewModel>()
-        recycler_review.setHasFixedSize(true)
-        val adoptAdapter = ReviewAdapter(activity!!, reviewModel)
-        recycler_review.layoutManager = LinearLayoutManager(context)
-        recycler_review.adapter = adoptAdapter
-        reviewModel.add(ReviewModel("사랑이 입양후기", "사랑이 입양후기랍니다", "류수영", "2019/4/15"))
-        reviewModel.add(ReviewModel("사랑이 입양후기", "사랑이 입양후기랍니다", "류수영", "2019/4/15"))
-        reviewModel.add(ReviewModel("사랑이 입양후기", "사랑이 입양후기랍니다", "류수영", "2019/4/15"))
-        reviewModel.add(ReviewModel("사랑이 입양후기", "사랑이 입양후기랍니다", "류수영", "2019/4/15"))
-        reviewModel.add(ReviewModel("사랑이 입양후기", "사랑이 입양후기랍니다", "류수영", "2019/4/15"))
-
-        recycler_review.addOnItemTouchListener(
-            RecyclerItemClickListener(context!!, recycler_review,
-                object : RecyclerItemClickListener.OnItemClickListener {
-                    override fun onItemClick(view: View, position: Int) {
-                        startActivity(Intent(context, DetailReviewActivity::class.java))
-                    }
-
-                    override fun onLongItemClick(view: View?, position: Int) {
-
-                    }
-                })
-        )
-        return layout
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ReviewViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel = ViewModelProviders.of(activity!!).get(AdoptViewModel::class.java)
+//        binding.vm = viewModel
+//        view_adopt.adapter = AdoptAdapter(viewModel)
+//        viewModel.getAdopt()
+//        viewModel.gotoDetail.observe(
+//            this,
+//            Observer { activity!!.startActivity<DetailAdoptActivity>("id" to viewModel.postId.value.toString()) })
     }
 
 }
