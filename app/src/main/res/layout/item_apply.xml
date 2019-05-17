@@ -23,7 +23,8 @@
 
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="130dp"
+            android:onClick="@{()->vm.gotoDetail(index)}">
 
         <ImageView
                 android:layout_width="0dp"

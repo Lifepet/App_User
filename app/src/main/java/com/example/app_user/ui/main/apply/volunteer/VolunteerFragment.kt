@@ -1,5 +1,6 @@
 package com.example.app_user.ui.main.apply.volunteer
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -36,6 +37,9 @@ class VolunteerFragment : DataBindingFragment<VolunteerFragmentBinding>() {
         binding.vm = viewModel
         view_volunteer.adapter = VolunteerAdapter(viewModel)
         viewModel.getVolunteer()
+        viewModel.gotoDetail.observe(
+            this,
+            Observer { activity!!.startActivity<DetailVolunteerActivity>("id" to viewModel.postId.value) })
     }
 
 }
