@@ -55,5 +55,13 @@ interface API {
     @Headers("Content-Type: application/json")
     fun getVolunteerDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<VolunteerModel>
 
+    @GET("post/report/")
+    @Headers("Content-Type: application/json")
+    fun getReport(@Header("Authorization") token: String): Call<ArrayList<ReportModel>>
+
+    @GET("post/report/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getReportDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ReportModel>
+
 
 }

@@ -7,38 +7,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
+import com.example.app_user.databinding.ItemProtectBinding
+import com.example.app_user.databinding.ItemReportBinding
 import com.example.app_user.model.LostModel
+import com.example.app_user.model.ProtectModel
 import com.example.app_user.model.ReportModel
+import com.example.app_user.ui.main.declaration.report.ReportViewModel
 import org.jetbrains.anko.find
 
-class ReportAdapter(internal var context: Context, internal var reportModel: ArrayList<ReportModel>) :
+class ReportAdapter(val viewModel: ReportViewModel) :
     RecyclerView.Adapter<ReportAdapter.ViewHolder>() {
 
+    var item = arrayListOf<ReportModel>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_declaration, viewGroup, false)
-        return ViewHolder(view)
+        val binding = ItemReportBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(reportModel[i])
+        viewHolder.bind()
     }
 
-    override fun getItemCount(): Int {
-        return reportModel.size
-    }
+    override fun getItemCount(): Int = item.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text_Title = itemView.find<TextView>(R.id.text_title)
-        val text_Gps=itemView.find<TextView>(R.id.text_gps)
-        val text_Content = itemView.find<TextView>(R.id.text_content)
-        val text_Date = itemView.find<TextView>(R.id.text_date)
-        val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(reportModel: ReportModel) {
-            text_Title.text = reportModel.text_Title
-            text_Gps.text=reportModel.text_Gps
-            text_Content.text = reportModel.text_Content
-            text_Date.text = reportModel.text_Date
-            text_Writer.text = reportModel.text_Writer
+    inner class ViewHolder(val binding: ItemReportBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind() {
+            binding.reportModel = item[adapterPosition]
+            binding.index = adapterPosition
+            binding.vm = viewModel
         }
     }
 }
