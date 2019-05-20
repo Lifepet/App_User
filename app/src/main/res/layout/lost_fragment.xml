@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<layout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.declaration.lost.LostFragment">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.v7.widget.RecyclerView
+    <data>
+
+        <variable
+                name="vm"
+                type="com.example.app_user.ui.main.declaration.lost.LostViewModel"/>
+
+        <import type="com.example.app_user.model.LostModel"/>
+    </data>
+
+    <FrameLayout
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/view_lost"/>
+            tools:context=".ui.main.declaration.lost.LostFragment">
 
-    <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:src="@drawable/ic_add_black_24dp"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_margin="16dp"/>
-</FrameLayout>
+        <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/view_lost"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                app:lostData="@{vm.lostModel}"/>
+
+        <android.support.design.widget.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:src="@drawable/ic_add_black_24dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_margin="16dp"/>
+    </FrameLayout>
+</layout>

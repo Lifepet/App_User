@@ -1,3 +1,12 @@
 package com.example.app_user.model
 
-data class LostModel(var text_Title:String,var text_Gps:String,var text_Content:String,var text_Writer:String,var text_Date:String)
+data class LostModel(
+    var post_id: String,
+    var image: String,
+    var title: String,
+    var content: String,
+    var creation_date: String,
+    var sex: String,
+    var author: String,
+    var pet_name: String
+)

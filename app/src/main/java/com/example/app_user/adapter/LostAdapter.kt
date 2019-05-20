@@ -7,37 +7,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.app_user.R
+import com.example.app_user.databinding.ItemLostBinding
+import com.example.app_user.databinding.ItemProtectBinding
 import com.example.app_user.model.LostModel
+import com.example.app_user.model.ProtectModel
+import com.example.app_user.ui.main.declaration.lost.LostViewModel
 import org.jetbrains.anko.find
 
-class LostAdapter(internal var context: Context, internal var lostModel: ArrayList<LostModel>) :
+class LostAdapter(val viewModel: LostViewModel) :
     RecyclerView.Adapter<LostAdapter.ViewHolder>() {
 
+    var item = arrayListOf<LostModel>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_declaration, viewGroup, false)
-        return ViewHolder(view)
+        val binding = ItemLostBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.bind(lostModel[i])
+        viewHolder.bind()
     }
 
     override fun getItemCount(): Int {
-        return lostModel.size
+        return item.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text_Title = itemView.find<TextView>(R.id.text_title)
-        val text_Gps=itemView.find<TextView>(R.id.text_gps)
-        val text_Content = itemView.find<TextView>(R.id.text_content)
-        val text_Date = itemView.find<TextView>(R.id.text_date)
-        val text_Writer = itemView.find<TextView>(R.id.text_writer)
-        fun bind(lostModel:LostModel) {
-            text_Title.text = lostModel.text_Title
-            text_Gps.text=lostModel.text_Gps
-            text_Content.text = lostModel.text_Content
-            text_Date.text = lostModel.text_Date
-            text_Writer.text = lostModel.text_Writer
+    inner class ViewHolder(val binding: ItemLostBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind() {
+            binding.index = adapterPosition
+            binding.vm = viewModel
+            binding.lostModel = item[adapterPosition]
         }
     }
 }

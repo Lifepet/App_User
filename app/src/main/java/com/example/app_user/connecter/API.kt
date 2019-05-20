@@ -63,5 +63,13 @@ interface API {
     @Headers("Content-Type: application/json")
     fun getReportDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ReportModel>
 
+    @GET("post/find/")
+    @Headers("Content-Type: application/json")
+    fun getLost(@Header("Authorization") token: String): Call<ArrayList<LostModel>>
+
+    @GET("post/find/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getLostDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<LostModel>
+
 
 }
