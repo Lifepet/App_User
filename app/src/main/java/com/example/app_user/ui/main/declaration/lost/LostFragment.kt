@@ -1,5 +1,6 @@
 package com.example.app_user.ui.main.declaration.lost
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.declaration_fragment.*
 import kotlinx.android.synthetic.main.lost_fragment.*
 import kotlinx.android.synthetic.main.report_fragment.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class LostFragment : DataBindingFragment<LostFragmentBinding>() {
 
@@ -35,5 +37,8 @@ class LostFragment : DataBindingFragment<LostFragmentBinding>() {
         binding.vm = viewModel
         view_lost.adapter = LostAdapter(viewModel)
         viewModel.getLost()
+        viewModel.gotoDetail.observe(
+            this,
+            Observer { activity!!.startActivity<DetailLostActivity>("id" to viewModel.postId.value) })
     }
 }

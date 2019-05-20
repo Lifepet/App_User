@@ -1,27 +1,31 @@
 package com.example.app_user.ui.detailLost
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.app_user.R
+import com.example.app_user.databinding.ActivityDetailLostBinding
+import com.example.app_user.databinding.ActivityDetailProtectBinding
+import com.example.app_user.ui.detail_adopt.DetailAdoptViewModel
 import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
+import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.startActivity
 
-class DetailLostActivity : AppCompatActivity() {
+class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
+
+    override val layoutId: Int get() = R.layout.activity_detail_lost
+
+    private val viewModel: DetailLostViewModel by lazy {
+        ViewModelProviders.of(this).get(DetailLostViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_lost)
-        ic_back.setOnClickListener {
-            startActivity<MainActivity>()
-            finish()
-        }
-        ic_comment.setOnClickListener {
-            val commentDialog = CommentDialog(this)
-            commentDialog.Comment()
-            commentDialog.type="신고"
-        }
-        text_title.setText("신고")
+        binding.vm=viewModel
+        val intent=intent
+        viewModel.postId.value=intent.getStringExtra("id")
+        viewModel.getLostDetail()
     }
 }

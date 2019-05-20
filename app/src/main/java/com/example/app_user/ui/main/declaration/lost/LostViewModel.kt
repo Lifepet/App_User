@@ -6,20 +6,22 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel;
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.LostModel
+import com.example.app_user.util.SingleLiveEvent
 import com.example.app_user.util.getToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LostViewModel(val app:Application) : AndroidViewModel(app) {
+class LostViewModel(val app: Application) : AndroidViewModel(app) {
 
-    val lostModel=MutableLiveData<ArrayList<LostModel>>()
-    val postId=MutableLiveData<String>()
+    val lostModel = MutableLiveData<ArrayList<LostModel>>()
+    val postId = MutableLiveData<String>()
+    val gotoDetail = SingleLiveEvent<Any>()
 
-    fun getLost(){
-        Connecter.api.getLost(getToken(app.applicationContext)).enqueue(object : Callback<ArrayList<LostModel>>{
+    fun getLost() {
+        Connecter.api.getLost(getToken(app.applicationContext)).enqueue(object : Callback<ArrayList<LostModel>> {
             override fun onResponse(call: Call<ArrayList<LostModel>>, response: Response<ArrayList<LostModel>>) {
-                lostModel.value=response.body()
+                lostModel.value = response.body()
             }
 
             override fun onFailure(call: Call<ArrayList<LostModel>>, t: Throwable) {
@@ -27,5 +29,10 @@ class LostViewModel(val app:Application) : AndroidViewModel(app) {
             }
 
         })
+    }
+
+    fun gotoDetail(index: Int) {
+        postId.value = lostModel.value!![index].post_id
+        gotoDetail.call()
     }
 }

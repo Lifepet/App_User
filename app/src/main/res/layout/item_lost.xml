@@ -22,7 +22,8 @@
 
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp">
+            android:layout_height="130dp"
+            android:onClick="@{()->vm.gotoDetail(index)}">
 
         <ImageView
                 android:layout_width="0dp"
@@ -40,7 +41,7 @@
                 android:layout_marginStart="4dp"/>
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@{lostModel.title}"
                 android:textSize="16sp"
@@ -49,13 +50,13 @@
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.146"
-                android:id="@+id/text_title"/>
+                android:id="@+id/text_title"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintVertical_bias="0.146"/>
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@{lostModel.pet_name}"
                 android:textSize="13sp"
@@ -66,11 +67,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 android:id="@+id/text_gps"
-                app:layout_constraintHorizontal_bias="0.052"
-                />
+                app:layout_constraintHorizontal_bias="0.441"
+                app:layout_constraintVertical_bias="0.0"/>
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@{lostModel.content}"
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
@@ -78,14 +79,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="28dp"
                 android:textColor="#505050"
                 android:textSize="12sp"
-                app:layout_constraintHorizontal_bias="0.025"
+                app:layout_constraintHorizontal_bias="0.269"
                 android:id="@+id/text_content"/>
 
         <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="@{lostModel.author}"
                 android:textSize="12sp"
@@ -98,12 +99,12 @@
                 android:layout_marginStart="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintHorizontal_bias="0.021"
-                app:layout_constraintVertical_bias="0.0"/>
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintVertical_bias="0.272"/>
 
         <TextView
                 android:id="@+id/text_date"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@{lostModel.creation_date}"
                 android:textSize="12sp"
@@ -113,8 +114,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_content"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.903"
-                app:layout_constraintVertical_bias="0.687"/>
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintVertical_bias="0.652"/>
 
         <View
                 android:layout_width="match_parent"
