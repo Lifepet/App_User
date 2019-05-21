@@ -5,6 +5,7 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.VolunteerModel
+import com.example.app_user.util.SingleLiveEvent
 import com.example.app_user.util.getToken
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,6 +15,7 @@ class DetailVolunteerViewModel(val app: Application) : AndroidViewModel(app) {
 
     val volunteerModel = MutableLiveData<VolunteerModel>()
     val postId = MutableLiveData<String>()
+    val gotoApply = SingleLiveEvent<Any>()
 
     fun getVolunteerDetail() {
         Connecter.api.getVolunteerDetail(getToken(app.applicationContext), postId.value!!)
@@ -28,5 +30,9 @@ class DetailVolunteerViewModel(val app: Application) : AndroidViewModel(app) {
                 }
 
             })
+    }
+
+    fun gotoApply() {
+        gotoApply.call()
     }
 }
