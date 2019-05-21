@@ -40,7 +40,7 @@ class WriteReviewActivity : DataBindingActivity<ActivityWriteReviewBinding>() {
             startActivityForResult(intent, PICK_FROM_ALBUM)
         })
         viewModel.successPost.observe(this, Observer {
-            startActivity<MainActivity>()
+            startActivity<MainActivity>("position" to 3)
             toast("성공")
         })
     }

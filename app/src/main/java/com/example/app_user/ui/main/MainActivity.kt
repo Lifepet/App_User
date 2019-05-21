@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         view_main.adapter = PagerAdapter(supportFragmentManager)
+        val intent = intent
         view_main.currentItem = 0
         tab_main.addTab(tab_main.newTab().setText("입양"))
         tab_main.addTab(tab_main.newTab().setText("신고"))

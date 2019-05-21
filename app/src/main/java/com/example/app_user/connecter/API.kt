@@ -71,5 +71,9 @@ interface API {
     @Headers("Content-Type: application/json")
     fun getLostDetail(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<LostModel>
 
+    @POST("/apply/adoption/{apply_id}")
+    @Headers("Content-Type: application/json")
+    fun postAdoptApply(@Header("Authorization") token: String, @Path("apply_id") apply_id: String, @Body body: Any): Call<Unit>
+
 
 }

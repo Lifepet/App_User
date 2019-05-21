@@ -10,7 +10,6 @@ import com.example.app_user.ui.detail_adopt.DetailAdoptViewModel
 import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
-import kotlinx.android.synthetic.main.activity_detail.*
 import org.jetbrains.anko.startActivity
 
 class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {

@@ -33,7 +33,7 @@ class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
             })
     }
 
-    fun gotoApply(){
+    fun gotoApply() {
         gotoApply.call()
     }
 }

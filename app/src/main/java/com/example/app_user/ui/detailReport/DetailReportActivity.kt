@@ -8,7 +8,6 @@ import com.example.app_user.databinding.ActivityDetailReportBinding
 import com.example.app_user.ui.detailProtect.DetailProtectViewModel
 import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.DataBindingActivity
-import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailReportActivity : DataBindingActivity<ActivityDetailReportBinding>() {
 
