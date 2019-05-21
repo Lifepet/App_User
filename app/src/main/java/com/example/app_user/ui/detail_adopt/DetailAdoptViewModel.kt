@@ -15,7 +15,10 @@ class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val adoptModel = MutableLiveData<AdoptListModel>()
     val postId = MutableLiveData<String>()
     val backMain = SingleLiveEvent<Any>()
+    val gotoApply = SingleLiveEvent<Any>()
+
     fun backtoMain() = backMain.call()
+
     fun getAdoptDetail() {
         Connecter.api.getAdoptDetail(getToken(app.applicationContext), postId.value!!)
             .enqueue(object : Callback<AdoptListModel> {
@@ -28,5 +31,9 @@ class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
                 }
 
             })
+    }
+
+    fun gotoApply(){
+        gotoApply.call()
     }
 }

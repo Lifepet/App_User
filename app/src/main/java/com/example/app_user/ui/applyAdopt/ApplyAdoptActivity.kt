@@ -13,9 +13,5 @@ class ApplyAdoptActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_apply_adopt)
-        bt_complete.setOnClickListener {
-            startActivity<MainActivity>()
-            toast("작성이 완료되었습니다.")
-        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.app_user.ui.main.declaration.report
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -34,7 +35,10 @@ class ReportFragment : DataBindingFragment<ReportFragmentBinding>() {
         super.onViewCreated(view, savedInstanceState)
         val viewModel = ViewModelProviders.of(activity!!).get(ReportViewModel::class.java)
         binding.vm = viewModel
-        view_report.adapter=ReportAdapter(viewModel)
+        view_report.adapter = ReportAdapter(viewModel)
         viewModel.getReport()
+        viewModel.gotoDetail.observe(
+            this,
+            Observer { activity!!.startActivity<DetailReportActivity>("id" to viewModel.postId.value) })
     }
 }
