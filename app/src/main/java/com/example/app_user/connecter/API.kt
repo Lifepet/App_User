@@ -75,5 +75,9 @@ interface API {
     @Headers("Content-Type: application/json")
     fun postAdoptApply(@Header("Authorization") token: String, @Path("apply_id") apply_id: String, @Body body: Any): Call<Unit>
 
+    @POST("/apply/care/{apply_id}")
+    @Headers("Content-Type: application/json")
+    fun postProtectApply(@Header("Authorization") token: String, @Path("apply_id") apply_id: String, @Body body: Any): Call<Unit>
+
 
 }

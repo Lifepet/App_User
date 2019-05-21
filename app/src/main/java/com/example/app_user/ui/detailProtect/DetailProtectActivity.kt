@@ -1,13 +1,17 @@
 package com.example.app_user.ui.detailProtect
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailProtectBinding
+import com.example.app_user.ui.applyAdopt.ApplyAdoptActivity
+import com.example.app_user.ui.applyProtect.ApplyProtectActivity
 import com.example.app_user.ui.detail_adopt.DetailAdoptViewModel
 import com.example.app_user.util.DataBindingActivity
+import org.jetbrains.anko.startActivity
 
 class DetailProtectActivity : DataBindingActivity<ActivityDetailProtectBinding>() {
 
@@ -23,5 +27,8 @@ class DetailProtectActivity : DataBindingActivity<ActivityDetailProtectBinding>(
         val intent = intent
         viewModel.postId.value = intent.getStringExtra("id")
         viewModel.getProtectDetail()
+        viewModel.gotoApply.observe(
+            this,
+            Observer { startActivity<ApplyProtectActivity>("id" to viewModel.postId.value) })
     }
 }
