@@ -14,8 +14,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.writeReport.WriteReportActivity">
+        </activity>
+        <activity android:name=".ui.writeLost.LostWriteActivity">
+        </activity>
         <activity android:name=".ui.writeReview.WriteReviewActivity">
-
         </activity>
         <activity android:name=".ui.applyVolunteer.ApplyVolunteerActivity">
         </activity>
@@ -31,7 +34,7 @@
         </activity>
         <activity android:name=".ui.applyAdopt.ApplyAdoptActivity">
         </activity>
-        <activity android:name=".ui.detail_adopt.DetailAdoptActivity">
+        <activity android:name=".ui.detailAdopt.DetailAdoptActivity">
         </activity>
         <activity android:name=".ui.signup.SignupActivity">
         </activity>

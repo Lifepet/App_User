@@ -83,5 +83,14 @@ interface API {
     @Headers("Content-Type: application/json")
     fun postFindApply(@Header("Authorization") token: String, @Path("apply_id") apply_id: String, @Body body: Any): Call<Unit>
 
+    @POST("post/find/")
+    @Multipart
+    fun postFind(
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody, @Part(
+            "pet_name"
+        ) pet_name: RequestBody, @Part("content") content: RequestBody,
+        @Part image: MultipartBody.Part
+    ): Call<Unit>
+
 
 }

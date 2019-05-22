@@ -12,7 +12,7 @@ import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_apply_volunteer.*
 import org.jetbrains.anko.startActivity
 
-class ApplyVolunteerActivity : DataBindingActivity<ActivityApplyVolunteerBinding>(){
+class ApplyVolunteerActivity : DataBindingActivity<ActivityApplyVolunteerBinding>() {
 
     override val layoutId: Int get() = R.layout.activity_apply_volunteer
 
@@ -23,7 +23,7 @@ class ApplyVolunteerActivity : DataBindingActivity<ActivityApplyVolunteerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        val intent=intent
+        val intent = intent
         viewModel.postId.value = intent.getStringExtra("id")
         viewModel.volunteerApply.observe(this, Observer { startActivity<MainActivity>() })
     }

@@ -2,14 +2,13 @@ package com.example.app_user.ui.main.adopt
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 
 import com.example.app_user.R
 import com.example.app_user.adapter.AdoptAdapter
 import com.example.app_user.databinding.AdoptFragmentBinding
-import com.example.app_user.ui.detail_adopt.DetailAdoptActivity
+import com.example.app_user.ui.detailAdopt.DetailAdoptActivity
 import com.example.app_user.util.DataBindingFragment
 import kotlinx.android.synthetic.main.adopt_fragment.*
 import org.jetbrains.anko.startActivity

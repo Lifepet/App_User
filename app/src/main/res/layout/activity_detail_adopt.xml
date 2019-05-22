@@ -8,7 +8,7 @@
 
         <variable
                 name="vm"
-                type="com.example.app_user.ui.detail_adopt.DetailAdoptViewModel"/>
+                type="com.example.app_user.ui.detailAdopt.DetailAdoptViewModel"/>
 
         <variable
                 name="adoptModel"

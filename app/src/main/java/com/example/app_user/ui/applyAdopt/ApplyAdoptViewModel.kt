@@ -39,7 +39,7 @@ class ApplyAdoptViewModel(val app: Application) : AndroidViewModel(app) {
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
         })

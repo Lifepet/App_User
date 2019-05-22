@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="vm"
+                type="com.example.app_user.ui.writeLost.LostWriteViewModel"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.08"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/colorPrimary"
+                android:id="@+id/constraintLayout">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textSize="16sp"
+                    android:text="신고"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/text_title_apply"/>
+        </android.support.constraint.ConstraintLayout>
+
+        <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_add_black"
+                android:padding="24dp"
+                android:scaleType="centerCrop"
+                android:onClick="@{()->vm.imageLoad()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintVertical_bias="0.155"
+                android:id="@+id/lost_image_ic"/>
+
+        <EditText
+                android:inputType="text"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.06"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/lost_image_ic"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:hint="제목"
+                android:text="@={vm.lostTitle}"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/back_write"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintVertical_bias="0.031"
+                android:id="@+id/editText5"/>
+
+        <EditText
+                android:inputType="text"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.06"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/editText5"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/back_write"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:text="@={vm.lostPlace}"
+                android:hint="강아지 잃어버린 곳"
+                android:id="@+id/editText6"/>
+
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.06"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/editText6"
+                android:id="@+id/constraintLayout2">
+
+            <EditText
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintWidth_percent="0.35"
+                    android:background="@drawable/back_write"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:hint="강아지 종류"
+                    android:text="@={vm.lostSection}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/editText7"/>
+
+            <EditText
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintWidth_percent="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/editText7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:hint="나이"
+                    android:text="@={vm.lostAge}"
+                    android:textSize="14sp"
+                    android:padding="8dp"
+                    android:background="@drawable/back_write"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/editText8"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="성별"
+                    app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/editText8"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintWidth_percent="0.25"
+                    app:layout_constraintStart_toEndOf="@+id/editText8"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="0dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    android:id="@+id/radioGroup">
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="남"/>
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:text="여"/>
+            </RadioGroup>
+        </android.support.constraint.ConstraintLayout>
+
+        <EditText
+                android:inputType="text"
+                android:maxLines="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:background="@drawable/back_write"
+                android:hint="내용"
+                android:text="@={vm.lostContent}"
+                android:gravity="start"
+                android:padding="8dp"
+                android:textSize="14sp"
+                app:layout_constraintVertical_bias="0.074"
+                android:id="@+id/editText10"/>
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.06"
+                app:layout_constraintTop_toBottomOf="@+id/editText10"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/back_login"
+                android:layout_marginBottom="8dp"
+                android:text="신청하기"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="0.382"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -2,15 +2,9 @@ package com.example.app_user.ui.detailLost
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailLostBinding
-import com.example.app_user.databinding.ActivityDetailProtectBinding
-import com.example.app_user.ui.detail_adopt.DetailAdoptViewModel
-import com.example.app_user.ui.dialogComment.CommentDialog
-import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
-import org.jetbrains.anko.startActivity
 
 class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
 

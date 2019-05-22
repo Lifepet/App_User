@@ -1,4 +1,4 @@
-package com.example.app_user.ui.detail_adopt
+package com.example.app_user.ui.detailAdopt
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
