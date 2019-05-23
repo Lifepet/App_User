@@ -19,6 +19,8 @@ import com.example.app_user.model.ReportModel
 import com.example.app_user.ui.detailProtect.DetailProtectActivity
 import com.example.app_user.ui.detailReport.DetailReportActivity
 import com.example.app_user.ui.main.apply.protect.ProtectViewModel
+import com.example.app_user.ui.writeReport.WriteReportActivity
+import com.example.app_user.ui.writeReview.WriteReviewActivity
 import com.example.app_user.util.DataBindingFragment
 import com.example.app_user.util.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.protect_fragment.*
@@ -40,5 +42,6 @@ class ReportFragment : DataBindingFragment<ReportFragmentBinding>() {
         viewModel.gotoDetail.observe(
             this,
             Observer { activity!!.startActivity<DetailReportActivity>("id" to viewModel.postId.value) })
+        report_write_fab.setOnClickListener { activity!!.startActivity<WriteReportActivity>() }
     }
 }

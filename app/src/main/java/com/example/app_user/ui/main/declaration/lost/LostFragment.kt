@@ -18,6 +18,8 @@ import com.example.app_user.databinding.LostFragmentBinding
 import com.example.app_user.model.LostModel
 import com.example.app_user.ui.detailLost.DetailLostActivity
 import com.example.app_user.ui.main.declaration.report.ReportViewModel
+import com.example.app_user.ui.writeLost.LostWriteActivity
+import com.example.app_user.ui.writeLost.LostWriteViewModel
 import com.example.app_user.util.DataBindingFragment
 import com.example.app_user.util.RecyclerItemClickListener
 import kotlinx.android.synthetic.main.declaration_fragment.*
@@ -40,5 +42,6 @@ class LostFragment : DataBindingFragment<LostFragmentBinding>() {
         viewModel.gotoDetail.observe(
             this,
             Observer { activity!!.startActivity<DetailLostActivity>("id" to viewModel.postId.value) })
+        lost_write_fab.setOnClickListener { activity!!.startActivity<LostWriteActivity>() }
     }
 }

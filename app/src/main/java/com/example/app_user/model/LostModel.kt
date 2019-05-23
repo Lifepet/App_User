@@ -8,5 +8,6 @@ data class LostModel(
     var creation_date: String,
     var sex: String,
     var author: String,
-    var pet_name: String
+    var pet_name: String,
+    var type:String
 )

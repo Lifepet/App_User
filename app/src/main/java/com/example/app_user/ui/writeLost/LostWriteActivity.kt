@@ -13,9 +13,11 @@ import android.widget.ImageView
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityLostWriteBinding
 import com.example.app_user.databinding.ActivityWriteReviewBinding
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.ui.writeReview.WriteReviewViewModel
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 import java.io.File
 
 class LostWriteActivity : DataBindingActivity<ActivityLostWriteBinding>() {
@@ -36,6 +38,7 @@ class LostWriteActivity : DataBindingActivity<ActivityLostWriteBinding>() {
             intent.type = MediaStore.Images.Media.CONTENT_TYPE
             startActivityForResult(intent, PICK_FROM_ALBUM)
         })
+        viewModel.gotoMain.observe(this, Observer { startActivity<MainActivity>() })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

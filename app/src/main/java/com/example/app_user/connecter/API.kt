@@ -88,7 +88,16 @@ interface API {
     fun postFind(
         @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("sex") sex: RequestBody, @Part(
             "pet_name"
-        ) pet_name: RequestBody, @Part("content") content: RequestBody,
+        ) pet_name: RequestBody, @Part("content") content: RequestBody, @Part("type") type: RequestBody,
+        @Part image: MultipartBody.Part
+    ): Call<Unit>
+
+    @POST("post/report/")
+    @Multipart
+    fun postReport(
+        @Header("Authorization") token: String, @Part("title") title: RequestBody, @Part("current_location") current_location: RequestBody, @Part(
+            "content"
+        ) content: RequestBody,
         @Part image: MultipartBody.Part
     ): Call<Unit>
 
