@@ -101,5 +101,31 @@ interface API {
         @Part image: MultipartBody.Part
     ): Call<Unit>
 
+    @POST("/comment/adoption/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postAdoptComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
 
+    @GET("/comment/adoption/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<AdoptCommentModel>>
+
+    @POST("/comment/care/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postProtectComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
+
+    @POST("/comment/report/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postReportComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
+
+    @POST("/comment/find/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postLostComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
+
+    @POST("/comment/community/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postReviewComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
+
+    @POST("/comment/move/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun postVolunteerComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
 }

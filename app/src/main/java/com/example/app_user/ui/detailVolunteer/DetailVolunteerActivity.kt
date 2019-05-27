@@ -9,6 +9,7 @@ import com.example.app_user.databinding.ActivityDetailReviewBinding
 import com.example.app_user.databinding.ActivityDetailVolunteerBinding
 import com.example.app_user.ui.applyVolunteer.ApplyVolunteerActivity
 import com.example.app_user.ui.detailReview.DetailReviewViewModel
+import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
@@ -30,5 +31,12 @@ class DetailVolunteerActivity : DataBindingActivity<ActivityDetailVolunteerBindi
         viewModel.gotoApply.observe(
             this,
             Observer { startActivity<ApplyVolunteerActivity>("id" to viewModel.postId.value) })
+
+        viewModel.gotoComment.observe(this, Observer {
+            val dialog = CommentDialog(this)
+            dialog.type = "이동봉사"
+            dialog.postId = viewModel.postId.value!!
+            dialog.Comment()
+        })
     }
 }

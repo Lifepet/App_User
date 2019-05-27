@@ -67,6 +67,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/text_title"
                     android:layout_marginStart="8dp"
+                    android:onClick="@{()->vm.gotoComment()}"
                     app:layout_constraintHorizontal_bias="0.866"
                     app:layout_constraintVertical_bias="0.578"/>
         </android.support.constraint.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.app_user.ui.detailReport
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -23,5 +24,12 @@ class DetailReportActivity : DataBindingActivity<ActivityDetailReportBinding>() 
         val intent = intent
         viewModel.postId.value = intent.getStringExtra("id")
         viewModel.getReportDetail()
+
+        viewModel.gotoComment.observe(this, Observer {
+            val dialog = CommentDialog(this)
+            dialog.type = "제보"
+            dialog.postId = viewModel.postId.value!!
+            dialog.Comment()
+        })
     }
 }

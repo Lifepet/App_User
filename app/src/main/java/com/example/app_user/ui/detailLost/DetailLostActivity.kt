@@ -1,9 +1,11 @@
 package com.example.app_user.ui.detailLost
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailLostBinding
+import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.DataBindingActivity
 
 class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
@@ -20,5 +22,11 @@ class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
         val intent=intent
         viewModel.postId.value=intent.getStringExtra("id")
         viewModel.getLostDetail()
+        viewModel.gotoComment.observe(this, Observer {
+            val dialog = CommentDialog(this)
+            dialog.type = "신고"
+            dialog.postId = viewModel.postId.value!!
+            dialog.Comment()
+        })
     }
 }

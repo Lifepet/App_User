@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailProtectBinding
 import com.example.app_user.ui.applyProtect.ApplyProtectActivity
+import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
@@ -26,5 +27,12 @@ class DetailProtectActivity : DataBindingActivity<ActivityDetailProtectBinding>(
         viewModel.gotoApply.observe(
             this,
             Observer { startActivity<ApplyProtectActivity>("id" to viewModel.postId.value) })
+
+        viewModel.gotoComment.observe(this, Observer {
+            val dialog = CommentDialog(this)
+            dialog.type = "임시보호"
+            dialog.postId = viewModel.postId.value!!
+            dialog.Comment()
+        })
     }
 }

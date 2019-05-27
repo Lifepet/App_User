@@ -1,10 +1,12 @@
 package com.example.app_user.ui.detailReview
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityDetailReviewBinding
+import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.DataBindingActivity
 import org.jetbrains.anko.startActivity
 
@@ -22,5 +24,12 @@ class DetailReviewActivity : DataBindingActivity<ActivityDetailReviewBinding>() 
         val intent=intent
         viewModel.postId.value=intent.getStringExtra("id")
         viewModel.getDetailReview()
+
+        viewModel.gotoComment.observe(this, Observer {
+            val dialog = CommentDialog(this)
+            dialog.type = "후기"
+            dialog.postId = viewModel.postId.value!!
+            dialog.Comment()
+        })
     }
 }

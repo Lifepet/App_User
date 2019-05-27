@@ -34,4 +34,10 @@ class DetailProtectViewModel(val app: Application) : AndroidViewModel(app) {
     fun gotoApply(){
         gotoApply.call()
     }
+
+    val gotoComment = SingleLiveEvent<Any>()
+
+    fun gotoComment() {
+        gotoComment.call()
+    }
 }
