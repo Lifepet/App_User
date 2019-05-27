@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="vm"
+                type="com.example.app_user.ui.detailVolunteer.DetailVolunteerViewModel"/>
+
+        <variable
+                name="index"
+                type="Integer"/>
+
+        <variable
+                name="volunteerCommentModel"
+                type="com.example.app_user.model.VolunteerCommentModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="8dp">
+
+        <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.084"
+                android:text="@{volunteerCommentModel.author}"
+                android:id="@+id/textView6"/>
+
+        <TextView
+                android:id="@+id/textView8"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:text="@{volunteerCommentModel.creation_date}"
+                app:layout_constraintHorizontal_bias="0.084"/>
+
+        <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                android:text="@{volunteerCommentModel.content}"
+                app:layout_constraintHorizontal_bias="0.068"/>
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.03"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="16dp"
+                android:background="#B4B4B4"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="4dp"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

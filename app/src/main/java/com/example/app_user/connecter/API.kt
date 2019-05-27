@@ -128,4 +128,24 @@ interface API {
     @POST("/comment/move/{post_id}")
     @Headers("Content-Type: application/json")
     fun postVolunteerComment(@Header("Authorization") token: String, @Path("post_id") post_id: String, @Body body: Any): Call<Unit>
+
+    @GET("/comment/care/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getProtectComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<ProtectCommentModel>>
+
+    @GET("/comment/report/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getReportComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<ReportCommentModel>>
+
+    @GET("/comment/find/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getLostComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<LostCommentModel>>
+
+    @GET("/comment/community/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getReviewComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<ReviewCommentModel>>
+
+    @GET("/comment/move/{post_id}")
+    @Headers("Content-Type: application/json")
+    fun getVolunteerComment(@Header("Authorization") token: String, @Path("post_id") post_id: String): Call<ArrayList<VolunteerCommentModel>>
 }

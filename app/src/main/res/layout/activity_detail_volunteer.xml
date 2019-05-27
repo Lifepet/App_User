@@ -204,9 +204,12 @@
                         android:background="#ffffff">
 
                     <android.support.v7.widget.RecyclerView
+                            android:id="@+id/volunteer_item_rv"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="#ffffff"
+                            app:volunteerData="@{vm.volunteerCommentModel}"
+                            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                             tools:layout_editor_absoluteY="0dp"
                             tools:layout_editor_absoluteX="-90dp"/>
                 </android.support.constraint.ConstraintLayout>

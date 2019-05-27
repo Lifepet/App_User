@@ -1,4 +1,4 @@
-package com.example.app_user.ui.detailReview
+package com.example.app_user.ui.detailVolunteer
 
 import android.arch.lifecycle.LiveData
 import android.databinding.BindingAdapter
@@ -9,16 +9,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.app_user.adapter.ProtectCommentAdapter
 import com.example.app_user.adapter.ReviewCommentAdapter
+import com.example.app_user.adapter.VolunteerCommentAdapter
 import com.example.app_user.model.ProtectCommentModel
 import com.example.app_user.model.ReviewCommentModel
+import com.example.app_user.model.VolunteerCommentModel
 
-@BindingAdapter("imageUrl", "error")
-fun setImageUrl(view: ImageView, uri: String?, error: Drawable) {
-    Glide.with(view.context).load(uri).apply(RequestOptions().override(150, 150)).into(view)
-}
-
-@BindingAdapter("reviewData")
-fun RecyclerView.setReviewData(data: LiveData<ArrayList<ReviewCommentModel>>) {
-    val reviewCommentAdapter: ReviewCommentAdapter = adapter as ReviewCommentAdapter
-    data.value?.let { reviewCommentAdapter.item = it }
+@BindingAdapter("volunteerData")
+fun RecyclerView.setVolunteerData(data: LiveData<ArrayList<VolunteerCommentModel>>) {
+    val volunteerCommentAdapter: VolunteerCommentAdapter = adapter as VolunteerCommentAdapter
+    data.value?.let { volunteerCommentAdapter.item = it }
 }

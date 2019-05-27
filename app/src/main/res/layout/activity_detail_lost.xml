@@ -217,8 +217,11 @@
                     android:background="#ffffff">
 
                 <android.support.v7.widget.RecyclerView
+                        android:id="@+id/lost_item_rv"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        app:lostCommentData="@{vm.lostCommentModel}"
+                        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                         android:background="#ffffff"/>
             </android.support.constraint.ConstraintLayout>
         </SlidingDrawer>
