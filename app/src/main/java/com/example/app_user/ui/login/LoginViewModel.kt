@@ -13,6 +13,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginViewModel(val app: Application) : AndroidViewModel(app) {
+
     val editId = MutableLiveData<String>()
     val editPassword = MutableLiveData<String>()
     val touchLogin = SingleLiveEvent<Any>()

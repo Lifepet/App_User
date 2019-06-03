@@ -41,14 +41,14 @@
 
         <TextView
                 android:maxLines="1"
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{reviewModel.title}"
                 android:textSize="16sp"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
                 app:layout_constraintHorizontal_bias="0.309"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.266"
@@ -56,14 +56,12 @@
 
         <TextView
                 android:maxLines="1"
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{reviewModel.content}"
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
                 android:layout_marginStart="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/text_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp"
                 android:layout_marginTop="12dp"
                 android:textSize="12sp"
                 app:layout_constraintHorizontal_bias="0.192"
@@ -74,11 +72,11 @@
 
         <TextView
                 android:maxLines="1"
-                android:layout_width="190dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{reviewModel.author}"
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="8dp"
@@ -86,17 +84,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_content"
                 app:layout_constraintVertical_bias="0.093"
                 android:id="@+id/text_writer"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.012"/>
 
         <TextView
                 android:id="@+id/text_date"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{reviewModel.creation_date}"
                 android:textSize="12sp"
-                app:layout_constraintStart_toEndOf="@+id/text_writer"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/text_content"
