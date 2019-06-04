@@ -19,5 +19,5 @@ fun RecyclerView.setAdoptData(data: LiveData<ArrayList<ProtectModel>>) {
 }
 @BindingAdapter("imageUrl", "error")
 fun setImageUrl(view: ImageView, url: String, error: Drawable) {
-    Glide.with(view.context).load(url).apply(RequestOptions().override(150, 150)).into(view)
+    Glide.with(view.context).load(url).apply(RequestOptions().override(250, 250)).into(view)
 }

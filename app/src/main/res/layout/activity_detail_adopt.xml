@@ -80,23 +80,65 @@
                 app:layout_constraintHeight_percent="0.3"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:image="@{vm.adoptModel.image}"
+                android:scaleType="centerCrop"
                 app:errorImage="@{@drawable/ic_test}"
                 android:id="@+id/imageView3"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{vm.adoptModel.sex}"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@+id/imageView3"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{vm.adoptModel.sex}"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintVertical_bias="0.033"
-                android:id="@+id/textView10"/>
+                app:layout_constraintHorizontal_bias="0.45"
+                android:id="@+id/textView10"
+                android:layout_marginTop="4dp"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/textView10"
+                app:layout_constraintEnd_toStartOf="@id/text_age"
+                app:layout_constraintTop_toBottomOf="@id/imageView3"
+                android:layout_margin="8dp"/>
+        <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:id="@+id/text_age"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                android:layout_margin="8dp"
+                android:text="@{vm.adoptModel.age}"
+                android:layout_marginTop="8dp"
+                />
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                app:layout_constraintStart_toEndOf="@id/text_age"
+                app:layout_constraintEnd_toStartOf="@id/text_kind"
+                app:layout_constraintTop_toBottomOf="@id/imageView3"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimaryDark"/>
+        <TextView
+                android:id="@+id/text_kind"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:textSize="16sp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/text_age"
+                app:layout_constraintTop_toBottomOf="@id/imageView3"
+                android:text="@{vm.adoptModel.kind}"
+                android:layout_margin="8dp"/>
 
         <TextView
                 android:layout_width="wrap_content"

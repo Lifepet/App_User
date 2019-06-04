@@ -28,7 +28,10 @@ class DetailAdoptActivity : DataBindingActivity<ActivityDetailAdoptBinding>() {
         adopt_item_rv.adapter = AdoptCommentAdapter(viewModel)
         viewModel.getAdoptDetail()
         viewModel.getAdoptComment()
-        viewModel.backMain.observe(this, Observer { startActivity<MainActivity>() })
+        viewModel.backMain.observe(this, Observer {
+            startActivity<MainActivity>()
+            finish()
+        })
         viewModel.gotoApply.observe(
             this,
             Observer { startActivity<ApplyAdoptActivity>("id" to viewModel.postId.value) })
@@ -39,6 +42,9 @@ class DetailAdoptActivity : DataBindingActivity<ActivityDetailAdoptBinding>() {
             dialog.postId = viewModel.postId.value!!
             dialog.Comment()
         })
+        ic_back.setOnClickListener { viewModel.backMain.call() }
         handle.setOnClickListener { viewModel.getAdoptComment() }
+
+        textView10.text = viewModel.type.value
     }
 }

@@ -79,6 +79,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:image="@{vm.protectModel.image}"
                 app:errorImage="@{@drawable/ic_test}"
+                android:scaleType="centerCrop"
                 android:id="@+id/imageView3"/>
 
         <TextView

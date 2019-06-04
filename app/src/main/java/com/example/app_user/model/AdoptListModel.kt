@@ -7,5 +7,7 @@ data class AdoptListModel(
     var content: String,
     var creation_date: String,
     var sex: String,
-    var author:String
+    var author:String,
+    var age:String,
+    var kind:String
 )

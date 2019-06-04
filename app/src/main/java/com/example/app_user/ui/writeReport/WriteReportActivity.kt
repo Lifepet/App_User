@@ -9,12 +9,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityWriteReportBinding
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.ui.writeLost.LostWriteViewModel
 import com.example.app_user.util.DataBindingActivity
+import kotlinx.android.synthetic.main.activity_write_report.*
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 import java.io.File
@@ -67,6 +69,7 @@ class WriteReportActivity : DataBindingActivity<ActivityWriteReportBinding>() {
 
     fun setImage() {
         val imageMain = find<ImageView>(R.id.report_image_ic)
+        ic_image.visibility = View.INVISIBLE
         val options = BitmapFactory.Options()
         val originalBm = BitmapFactory.decodeFile(viewModel.imageUri.value?.getAbsolutePath(), options)
         imageMain.setImageBitmap(originalBm)

@@ -8,6 +8,7 @@ import com.example.app_user.adapter.ProtectCommentAdapter
 import com.example.app_user.databinding.ActivityDetailProtectBinding
 import com.example.app_user.ui.applyProtect.ApplyProtectActivity
 import com.example.app_user.ui.dialogComment.CommentDialog
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail_protect.*
 import org.jetbrains.anko.startActivity
@@ -37,7 +38,11 @@ class DetailProtectActivity : DataBindingActivity<ActivityDetailProtectBinding>(
             dialog.postId = viewModel.postId.value!!
             dialog.Comment()
         })
-
-        protect_item_rv.adapter=ProtectCommentAdapter(viewModel)
+        handle.setOnClickListener { viewModel.getProtectComment() }
+        protect_item_rv.adapter = ProtectCommentAdapter(viewModel)
+        ic_back.setOnClickListener {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 }

@@ -24,7 +24,6 @@ class ReportViewModel(val app: Application) : AndroidViewModel(app) {
             }
 
             override fun onFailure(call: Call<ArrayList<ReportModel>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
         })

@@ -11,6 +11,7 @@ import com.example.app_user.databinding.ActivityDetailVolunteerBinding
 import com.example.app_user.ui.applyVolunteer.ApplyVolunteerActivity
 import com.example.app_user.ui.detailReview.DetailReviewViewModel
 import com.example.app_user.ui.dialogComment.CommentDialog
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail_volunteer.*
 import org.jetbrains.anko.startActivity
@@ -44,5 +45,12 @@ class DetailVolunteerActivity : DataBindingActivity<ActivityDetailVolunteerBindi
             dialog.postId = viewModel.postId.value!!
             dialog.Comment()
         })
+
+        handle.setOnClickListener { viewModel.getVolunteerComment() }
+
+        ic_back.setOnClickListener {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 }

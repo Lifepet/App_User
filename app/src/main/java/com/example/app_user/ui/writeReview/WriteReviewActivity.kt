@@ -16,7 +16,9 @@ import org.jetbrains.anko.find
 import java.io.File
 import android.graphics.BitmapFactory
 import android.util.Log
+import android.view.View
 import com.example.app_user.ui.main.MainActivity
+import kotlinx.android.synthetic.main.activity_write_review.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
@@ -73,6 +75,7 @@ class WriteReviewActivity : DataBindingActivity<ActivityWriteReviewBinding>() {
     fun setImage() {
         val imageMain = find<ImageView>(R.id.imageView4)
         val options = BitmapFactory.Options()
+        ic_image.visibility = View.INVISIBLE
         val originalBm = BitmapFactory.decodeFile(viewModel.imageUri.value?.getAbsolutePath(), options)
         imageMain.setImageBitmap(originalBm)
 

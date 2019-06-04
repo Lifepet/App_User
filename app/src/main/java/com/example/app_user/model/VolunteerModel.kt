@@ -9,5 +9,7 @@ data class VolunteerModel(
     var sex: String,
     var author: String,
     var current_location: String,
-    var destination_location: String
+    var destination_location: String,
+    var kind:String,
+    var age:String
 )

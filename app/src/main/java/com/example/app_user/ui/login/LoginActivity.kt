@@ -12,6 +12,7 @@ import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.ui.signup.SignupActivity
 import com.example.app_user.ui.signup.SignupViewModel
 import com.example.app_user.util.DataBindingActivity
+import com.example.app_user.util.getToken
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
@@ -23,9 +24,15 @@ class LoginActivity : DataBindingActivity<ActivityLoginBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        viewModel.touchLogin.observe(this, Observer { startActivity<MainActivity>() })
+        viewModel.touchLogin.observe(this, Observer {
+            startActivity<MainActivity>()
+            finish()
+        })
         viewModel.touchSignup.observe(this, Observer { startActivity<SignupActivity>() })
         viewModel.touchError.observe(this, Observer { toast("아이디 혹은 비밀번호가 틀렸습니다.") })
         viewModel.touchNull.observe(this, Observer { toast("아이디 혹은 비밀번호를 입력하지 않으셨습니다.") })
+        if (getToken(applicationContext).isNotEmpty()) {
+            viewModel.touchLogin.call()
+        }
     }
 }

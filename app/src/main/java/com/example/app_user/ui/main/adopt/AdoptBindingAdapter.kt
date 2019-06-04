@@ -1,7 +1,6 @@
 package com.example.app_user.ui.main.adopt
 
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.databinding.BindingAdapter
 import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
@@ -19,5 +18,5 @@ fun RecyclerView.setAdoptData(data: LiveData<ArrayList<AdoptListModel>>) {
 
 @BindingAdapter("imageUrl", "error")
 fun setImageUrl(view: ImageView, url: String, error: Drawable) {
-    Glide.with(view.context).load(url).apply(RequestOptions().override(150, 150)).into(view)
+    Glide.with(view.context).load(url).apply(RequestOptions().override(250, 250)).into(view)
 }

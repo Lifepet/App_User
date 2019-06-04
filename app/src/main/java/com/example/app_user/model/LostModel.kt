@@ -9,5 +9,5 @@ data class LostModel(
     var sex: String,
     var author: String,
     var pet_name: String,
-    var type:String
+    var kind:String
 )

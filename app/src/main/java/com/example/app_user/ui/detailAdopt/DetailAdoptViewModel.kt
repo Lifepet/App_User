@@ -19,6 +19,8 @@ class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val postId = MutableLiveData<String>()
     val backMain = SingleLiveEvent<Any>()
     val gotoApply = SingleLiveEvent<Any>()
+    val type = MutableLiveData<String>()
+
 
     fun backtoMain() = backMain.call()
 

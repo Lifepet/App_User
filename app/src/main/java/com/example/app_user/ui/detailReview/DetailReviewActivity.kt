@@ -8,6 +8,7 @@ import com.example.app_user.R
 import com.example.app_user.adapter.ReviewCommentAdapter
 import com.example.app_user.databinding.ActivityDetailReviewBinding
 import com.example.app_user.ui.dialogComment.CommentDialog
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail_review.*
 import org.jetbrains.anko.startActivity
@@ -23,12 +24,14 @@ class DetailReviewActivity : DataBindingActivity<ActivityDetailReviewBinding>() 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        val intent=intent
-        viewModel.postId.value=intent.getStringExtra("id")
+        val intent = intent
+        viewModel.postId.value = intent.getStringExtra("id")
         viewModel.getDetailReview()
         viewModel.getReviewComment()
 
-        review_item_rv.adapter=ReviewCommentAdapter(viewModel)
+        review_item_rv.adapter = ReviewCommentAdapter(viewModel)
+
+        handle.setOnClickListener { viewModel.getReviewComment() }
 
         viewModel.gotoComment.observe(this, Observer {
             val dialog = CommentDialog(this)
@@ -36,5 +39,10 @@ class DetailReviewActivity : DataBindingActivity<ActivityDetailReviewBinding>() 
             dialog.postId = viewModel.postId.value!!
             dialog.Comment()
         })
+
+        ic_back.setOnClickListener {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 }

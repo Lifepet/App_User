@@ -66,6 +66,7 @@
                 app:layout_constraintVertical_bias="0.103"/>
 
         <EditText
+                android:inputType="textPassword"
                 android:id="@+id/edit_pw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +85,7 @@
                 app:layout_constraintVertical_bias="0.14"/>
 
         <EditText
+                android:inputType="textPassword"
                 android:id="@+id/edit_pwcheck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

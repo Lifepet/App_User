@@ -7,8 +7,10 @@ import com.example.app_user.R
 import com.example.app_user.adapter.LostCommentAdapter
 import com.example.app_user.databinding.ActivityDetailLostBinding
 import com.example.app_user.ui.dialogComment.CommentDialog
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail_lost.*
+import org.jetbrains.anko.startActivity
 
 class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
 
@@ -32,5 +34,10 @@ class DetailLostActivity : DataBindingActivity<ActivityDetailLostBinding>() {
             dialog.Comment()
         })
         lost_item_rv.adapter=LostCommentAdapter(viewModel)
+
+        ic_back.setOnClickListener { startActivity<MainActivity>()
+        finish()}
+
+        handle.setOnClickListener { viewModel.getLostComment() }
     }
 }

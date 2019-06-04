@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.084"
+                app:layout_constraintHorizontal_bias="0.482"
                 android:text="@{reportCommentModel.author}"
                 android:id="@+id/textView6"/>
 
@@ -50,7 +50,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 android:text="@{reportCommentModel.creation_date}"
-                app:layout_constraintHorizontal_bias="0.084"/>
+                app:layout_constraintHorizontal_bias="0.482"/>
 
         <TextView
                 android:layout_width="350dp"
@@ -62,12 +62,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 android:text="@{reportCommentModel.content}"
-                app:layout_constraintHorizontal_bias="0.068"/>
+                app:layout_constraintHorizontal_bias="0.482"/>
 
         <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:layout_constraintHeight_percent="0.03"
+                app:layout_constraintHeight_percent="0.01"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:layout_editor_absoluteX="16dp"
                 android:background="#B4B4B4"

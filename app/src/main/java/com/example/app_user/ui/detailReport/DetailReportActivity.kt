@@ -9,8 +9,10 @@ import com.example.app_user.adapter.ReportCommentAdapter
 import com.example.app_user.databinding.ActivityDetailReportBinding
 import com.example.app_user.ui.detailProtect.DetailProtectViewModel
 import com.example.app_user.ui.dialogComment.CommentDialog
+import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_detail_report.*
+import org.jetbrains.anko.startActivity
 
 class DetailReportActivity : DataBindingActivity<ActivityDetailReportBinding>() {
 
@@ -34,8 +36,12 @@ class DetailReportActivity : DataBindingActivity<ActivityDetailReportBinding>() 
             dialog.postId = viewModel.postId.value!!
             dialog.Comment()
         })
+        handle.setOnClickListener { viewModel.getrReportComment() }
 
-        report_item_rv.adapter=ReportCommentAdapter(viewModel)
-
+        report_item_rv.adapter = ReportCommentAdapter(viewModel)
+        ic_back.setOnClickListener {
+            startActivity<MainActivity>()
+            finish()
+        }
     }
 }
