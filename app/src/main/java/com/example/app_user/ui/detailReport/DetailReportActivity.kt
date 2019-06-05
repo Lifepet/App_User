@@ -11,7 +11,6 @@ import com.example.app_user.adapter.ReportCommentAdapter
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.databinding.ActivityDetailReportBinding
 import com.example.app_user.ui.detailProtect.DetailProtectViewModel
-import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import com.example.app_user.util.getToken

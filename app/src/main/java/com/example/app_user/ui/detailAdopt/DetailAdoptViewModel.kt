@@ -6,7 +6,6 @@ import android.arch.lifecycle.MutableLiveData
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.model.AdoptCommentModel
 import com.example.app_user.model.AdoptListModel
-import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.util.SingleLiveEvent
 import com.example.app_user.util.getToken
 import retrofit2.Call

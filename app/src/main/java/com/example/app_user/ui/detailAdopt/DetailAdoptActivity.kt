@@ -11,7 +11,6 @@ import com.example.app_user.adapter.AdoptCommentAdapter
 import com.example.app_user.connecter.Connecter
 import com.example.app_user.databinding.ActivityDetailAdoptBinding
 import com.example.app_user.ui.applyAdopt.ApplyAdoptActivity
-import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import com.example.app_user.util.getToken

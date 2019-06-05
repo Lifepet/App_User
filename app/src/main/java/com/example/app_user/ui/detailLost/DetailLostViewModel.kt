@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailLostViewModel(val app: Application) : AndroidViewModel(app) {
+class  DetailLostViewModel(val app: Application) : AndroidViewModel(app) {
     val lostModel = MutableLiveData<LostModel>()
     val postId = MutableLiveData<String>()
     val lostCommentModel=MutableLiveData<ArrayList<LostCommentModel>>()

@@ -13,7 +13,6 @@ import com.example.app_user.databinding.ActivityDetailReviewBinding
 import com.example.app_user.databinding.ActivityDetailVolunteerBinding
 import com.example.app_user.ui.applyVolunteer.ApplyVolunteerActivity
 import com.example.app_user.ui.detailReview.DetailReviewViewModel
-import com.example.app_user.ui.dialogComment.CommentDialog
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import com.example.app_user.util.getToken
