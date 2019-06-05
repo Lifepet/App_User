@@ -97,6 +97,7 @@
                 app:layout_constraintHorizontal_bias="0.45"
                 android:id="@+id/textView10"
                 android:layout_marginTop="4dp"/>
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,6 +108,7 @@
                 app:layout_constraintEnd_toStartOf="@id/text_age"
                 app:layout_constraintTop_toBottomOf="@id/imageView3"
                 android:layout_margin="8dp"/>
+
         <TextView
                 android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/text_age"
@@ -119,6 +121,7 @@
                 android:text="@{vm.adoptModel.age}"
                 android:layout_marginTop="8dp"
                 />
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,6 +132,7 @@
                 android:layout_margin="8dp"
                 android:textSize="16sp"
                 android:textColor="@color/colorPrimaryDark"/>
+
         <TextView
                 android:id="@+id/text_kind"
                 android:textColor="@color/colorPrimaryDark"
@@ -172,7 +176,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintTop_toBottomOf="@+id/textView10"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.046"/>
 
@@ -185,10 +189,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.099"
-                android:id="@+id/textView13"/>
+                app:layout_constraintVertical_bias="0.054"
+                android:id="@+id/textView13"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"/>
 
         <Button
                 android:layout_width="match_parent"
@@ -207,9 +214,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintVertical_bias="0.761"/>
-
         <SlidingDrawer
-                android:id="@+id/slide"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:animateOnClick="true"
@@ -225,6 +230,7 @@
                     android:background="@drawable/back_write">
 
                 <ImageView
+                        android:id="@+id/view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_keyboard_arrow_down_black_24dp"

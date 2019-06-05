@@ -16,6 +16,7 @@ import retrofit2.Response
 class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val adoptModel = MutableLiveData<AdoptListModel>()
     val adoptCommentModel = MutableLiveData<ArrayList<AdoptCommentModel>>()
+    val getComment=SingleLiveEvent<Any>()
     val postId = MutableLiveData<String>()
     val backMain = SingleLiveEvent<Any>()
     val gotoApply = SingleLiveEvent<Any>()
@@ -36,6 +37,10 @@ class DetailAdoptViewModel(val app: Application) : AndroidViewModel(app) {
                 }
 
             })
+    }
+
+    fun getComment(){
+        getComment.call()
     }
 
     fun gotoApply() {

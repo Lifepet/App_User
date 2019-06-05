@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.example.app_user.R
 import com.example.app_user.databinding.ActivityApplyVolunteerBinding
 import com.example.app_user.ui.applyProtect.ApplyProtectViewModel
+import com.example.app_user.ui.detailVolunteer.DetailVolunteerActivity
 import com.example.app_user.ui.main.MainActivity
 import com.example.app_user.util.DataBindingActivity
 import kotlinx.android.synthetic.main.activity_apply_volunteer.*
@@ -26,5 +27,10 @@ class ApplyVolunteerActivity : DataBindingActivity<ActivityApplyVolunteerBinding
         val intent = intent
         viewModel.postId.value = intent.getStringExtra("id")
         viewModel.volunteerApply.observe(this, Observer { startActivity<MainActivity>() })
+
+        ic_back.setOnClickListener {
+            startActivity<DetailVolunteerActivity>("id" to intent.getStringExtra("id"))
+            finish()
+        }
     }
 }

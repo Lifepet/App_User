@@ -144,5 +144,6 @@ class CommentDialog(internal var context: Context) {
                 }
             }
         }
+        dialog.bt_cancle.setOnClickListener { dialog.dismiss() }
     }
 }
