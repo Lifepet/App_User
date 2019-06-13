@@ -16,7 +16,7 @@ import com.example.app_user.model.ReportCommentModel
 
 @BindingAdapter("image","errorImage")
 fun setImageUrl(view: ImageView, uri:String?, error: Drawable){
-    Glide.with(view.context).load(uri).apply(RequestOptions().override(150, 150)).into(view)
+    Glide.with(view.context).load(uri).apply(RequestOptions()).into(view)
 }
 
 @BindingAdapter("reportData")

@@ -18,7 +18,7 @@ interface API {
 
     @GET("post/adoption/")
     @Headers("Content-Type: application/json")
-    fun getAdopt(@Header("Authorization") token: String): Call<ArrayList<AdoptListModel>>
+    fun getAdopt(@Header("Authorization") token: String, @Query("search") search: String): Call<ArrayList<AdoptListModel>>
 
     @GET("post/adoption/{post_id}")
     @Headers("Content-Type: application/json")

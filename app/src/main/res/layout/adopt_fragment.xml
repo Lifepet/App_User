@@ -32,6 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_margin="12dp"
                 android:padding="8dp"
+                android:text="@={vm.textSearch}"
                 app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/edit_search"/>
 
@@ -40,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_search_black_24dp"
+                android:onClick="@{()->vm.getSearchAdopt()}"
                 app:layout_constraintEnd_toEndOf="@+id/edit_search"
                 app:layout_constraintTop_toTopOf="@+id/edit_search"
                 app:layout_constraintBottom_toBottomOf="@+id/edit_search"

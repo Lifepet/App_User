@@ -8,5 +8,7 @@ data class ProtectModel(
     var creation_date: String,
     var sex: String,
     var author: String,
-    var current_location: String
+    var current_location: String,
+    var kind:String,
+    var age:String
 )

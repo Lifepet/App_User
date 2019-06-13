@@ -46,6 +46,7 @@
                 android:text="@{volunteerModel.title}"
                 android:textSize="16sp"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:textColor="@android:color/black"
                 app:layout_constraintStart_toEndOf="@+id/ic_adopt"
                 app:layout_constraintTop_toTopOf="parent"
@@ -66,6 +67,7 @@
                 app:layout_constraintHorizontal_bias="0.307"/>
 
         <TextView
+                android:maxLines="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{volunteerModel.content}"

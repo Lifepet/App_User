@@ -17,7 +17,7 @@ import retrofit2.Response
 class DetailReviewViewModel(val app: Application) : AndroidViewModel(app) {
     val reviewModel = MutableLiveData<ReviewModel>()
     val postId = MutableLiveData<String>()
-    val reviewCommentModel=MutableLiveData<ArrayList<ReviewCommentModel>>()
+    val reviewCommentModel = MutableLiveData<ArrayList<ReviewCommentModel>>()
 
     fun getDetailReview() {
         Connecter.api.getReviewDetail(getToken(app.applicationContext), postId.value!!)
@@ -42,7 +42,6 @@ class DetailReviewViewModel(val app: Application) : AndroidViewModel(app) {
     fun getReviewComment() {
         Connecter.api.getReviewComment(getToken(app.applicationContext), postId.value!!)
             .enqueue(object : Callback<ArrayList<ReviewCommentModel>> {
-
                 override fun onResponse(
                     call: Call<ArrayList<ReviewCommentModel>>,
                     response: Response<ArrayList<ReviewCommentModel>>

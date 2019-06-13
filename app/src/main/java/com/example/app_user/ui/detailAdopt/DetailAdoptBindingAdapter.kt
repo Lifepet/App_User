@@ -12,10 +12,11 @@ import com.example.app_user.adapter.VolunteerAdapter
 import com.example.app_user.model.AdoptCommentModel
 import com.example.app_user.model.VolunteerModel
 
-@BindingAdapter("image","errorImage")
-    fun setImageUrl(view:ImageView,uri:String?,error:Drawable){
-    Glide.with(view.context).load(uri).apply(RequestOptions().override(150, 150)).into(view)
+@BindingAdapter("image", "errorImage")
+fun setImageUrl(view: ImageView, uri: String?, error: Drawable) {
+    Glide.with(view.context).load(uri).apply(RequestOptions()).into(view)
 }
+
 @BindingAdapter("adoptCommentData")
 fun RecyclerView.setadoptCommentDia(data: LiveData<ArrayList<AdoptCommentModel>>) {
     val adoptCommentAdapter: AdoptCommentAdapter = adapter as AdoptCommentAdapter

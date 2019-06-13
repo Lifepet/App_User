@@ -19,22 +19,43 @@ class AdoptViewModel(val app: Application) : AndroidViewModel(app) {
     val adoptModel = MutableLiveData<ArrayList<AdoptListModel>>()
     val postId = MutableLiveData<String?>()
     val gotoDetail = SingleLiveEvent<Any>()
+    val textSearch = MutableLiveData<String>()
 
     fun getAdopt() {
-        Connecter.api.getAdopt(getToken(app.applicationContext)).enqueue(object : Callback<ArrayList<AdoptListModel>> {
-            override fun onResponse(
-                call: Call<ArrayList<AdoptListModel>>,
-                response: Response<ArrayList<AdoptListModel>>
-            ) {
-                when (response.code()) {
-                    200 -> adoptModel.value = response.body()
+        Connecter.api.getAdopt(getToken(app.applicationContext), "")
+            .enqueue(object : Callback<ArrayList<AdoptListModel>> {
+                override fun onResponse(
+                    call: Call<ArrayList<AdoptListModel>>,
+                    response: Response<ArrayList<AdoptListModel>>
+                ) {
+                    when (response.code()) {
+                        200 -> adoptModel.value = response.body()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<ArrayList<AdoptListModel>>, t: Throwable) {
+                override fun onFailure(call: Call<ArrayList<AdoptListModel>>, t: Throwable) {
 
-            }
-        })
+                }
+            })
+    }
+
+    fun getSearchAdopt() {
+        Connecter.api.getAdopt(getToken(app.applicationContext), textSearch.value!!)
+            .enqueue(object : Callback<ArrayList<AdoptListModel>> {
+                override fun onResponse(
+                    call: Call<ArrayList<AdoptListModel>>,
+                    response: Response<ArrayList<AdoptListModel>>
+                ) {
+                    adoptModel.value?.clear()
+                    when (response.code()) {
+                        200 -> adoptModel.value = response.body()
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<AdoptListModel>>, t: Throwable) {
+
+                }
+            })
     }
 
     fun adoptTouch(index: Int) {

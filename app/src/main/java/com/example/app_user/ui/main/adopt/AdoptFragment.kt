@@ -3,6 +3,7 @@ package com.example.app_user.ui.main.adopt
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 
 import com.example.app_user.R
@@ -24,6 +25,8 @@ class AdoptFragment : DataBindingFragment<AdoptFragmentBinding>() {
         binding.vm = viewModel
         view_adopt.adapter = AdoptAdapter(viewModel)
         viewModel.getAdopt()
-        viewModel.gotoDetail.observe(this, Observer { activity!!.startActivity<DetailAdoptActivity>("id" to viewModel.postId.value.toString() ) })
+        viewModel.gotoDetail.observe(
+            this,
+            Observer { activity!!.startActivity<DetailAdoptActivity>("id" to viewModel.postId.value.toString()) })
     }
 }

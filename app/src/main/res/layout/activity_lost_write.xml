@@ -203,7 +203,7 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/back_login"
                 android:layout_marginBottom="8dp"
-                android:text="신청하기"
+                android:text="작성완료"
                 android:onClick="@{()->vm.postLost()}"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
